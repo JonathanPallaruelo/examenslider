@@ -1,0 +1,2585 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="PUBLIC/Less/normalize.css">
+    <link rel="stylesheet" type="text/css" href="PUBLIC/Less/common.css">
+
+
+
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,800;1,900&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Section</title>
+</head>
+
+<body class="bodyContact">
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+            font-weight: 700;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            text-align: start;
+            justify-content: center;
+            border-radius: 8px;
+
+        }
+
+        .modal-content h2,
+        p {
+
+            margin-bottom: 10px;
+
+
+        }
+
+        .modal-content h2 {
+
+            color: #5abc50;
+            font-size: 35px !important;
+        }
+
+        .label {
+
+            margin-top: 15px;
+
+        }
+
+        .btn {
+
+            margin-top: 20px;
+            margin-bottom: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 20px;
+
+            background-color: #1363a9 !important;
+            border: 2px solid #1363a9 !important;
+            color: #ffffff;
+            padding: 8px 16px;
+
+        }
+
+        .cookieForm input {
+            margin-top: 15px;
+            padding-bottom: 10px;
+
+        }
+
+        .btn:hover {
+
+            background-color: #ffffff !important;
+            color: #1363a9 !important;
+            border: 2px solid #1363a9 !important;
+            margin-bottom: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+
+
+        .info-div {
+            padding: 5px;
+            background-color: #e2dcdc;
+            margin: 10px;
+            border-radius: 8px;
+            margin-left: -4px;
+            border: 1px solid black;
+        }
+
+        .info-div p {
+
+            padding: 5px;
+        }
+
+        .modal-content a {
+
+            color: #BD9851;
+
+        }
+
+        .modal-content img {
+
+            width: 180px;
+            height: 120px;
+            text-align: center;
+            margin-left: 120px;
+            padding: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        /* Estilo para el track del carrusel */
+        .carousel__track {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* Estilo para cada slide del carrusel */
+        .carousel__slide {
+            min-width: 100%;
+            box-sizing: border-box;
+
+        }
+
+        /* Oculta las etiquetas de radio */
+        input[name="carousel"] {
+            display: none;
+        }
+
+        /* Estilo para los controles del carrusel */
+        .carousel__controls {
+            display: none;
+        }
+
+        /* Estilo para los indicadores del carrusel */
+        .carousel__indicators {}
+
+        .carousel__indicator {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel__indicator:hover,
+        .carousel__indicator:focus {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Estilo para los controles prev y next */
+        .carousel__control--backward,
+        .carousel__control--forward {}
+
+        .carousel__control--backward {
+            left: 10px;
+        }
+
+        .carousel__control--forward {
+            right: 10px;
+        }
+
+        .carousel-container {}
+
+
+
+        .carousel {
+            position: relative;
+            width: 100%;
+        }
+
+        .carousel__track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel__slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slider-content__container {
+            position: relative;
+            height: 520px;
+        }
+
+        .slider-content__background {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container-imagenes {
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            height: 400px;
+
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7)
+        }
+
+        .carousel__indicators {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .carousel__indicator {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel__indicator a {
+            text-decoration: none;
+            /* Asegúrate de que los enlaces no tengan subrayado */
+            display: inline-block;
+            /* Para asegurarte de que el enlace se comporta correctamente */
+        }
+
+        .carousel__indicator.active {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .carousel__controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 2;
+        }
+
+        .carousel__control {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .carousel__control--backward {
+            left: 10px;
+        }
+
+        .carousel__control--forward {
+            right: 10px;
+        }
+
+        .montañas {
+            position: relative;
+            bottom: 0%;
+            margin: 0;
+            padding: 0;
+            top: 20%;
+
+        }
+        .sueloslastSlice{
+            position: relative;
+            top: 62%;
+            z-index: 11111;
+        }
+        .sueloslastSlice2{
+            position: relative;
+            top: 45%;
+           
+        }
+
+        .coches {
+
+            position: relative;
+            left: 50%;
+            top: 73%;
+
+        }
+
+        .coches3 {
+
+            position: relative;
+            left: 50%;
+            top: 73%;
+
+        }
+
+        .suelos {
+            position: relative;
+            top: 72%;
+        }
+
+        .suelos2 {
+
+            position: relative;
+            top: 72.4%;
+        }
+
+        .nube1 {
+
+            position: absolute;
+            left: 21%;
+            top: 20%;
+        }
+
+        .nube2 {
+            position: absolute;
+            left: 30%;
+            top: 36%;
+        }
+
+        .nube3 {
+
+            position: absolute;
+            left: 43%;
+            top: 32%;
+        }
+
+        .nube4 {
+            position: relative;
+            left: 58%;
+        }
+
+
+        .nube6 {
+            position: relative;
+            left: 64%;
+            top: -15%;
+        }
+
+        .nube5 {
+            position: relative;
+            left: 72%;
+            top: 5%;
+        }
+
+        .nube8 {
+
+            position: relative;
+            left: 48%;
+            top: -28%;
+        }
+
+        .nube9 {
+            position: relative;
+            left: 74%;
+            top: -42%;
+        }
+
+
+        .title-slider {
+
+            position: absolute;
+            left: 20%;
+            z-index: 111111;
+            color: black;
+            top: 40%;
+        }
+
+        .title-slider1 {
+
+            font-size: 50px;
+            color: gray;
+            position: absolute;
+            top: 40%;
+            left: 21%;
+            z-index: 11;
+        }
+
+        .suelos1 {
+            z-index: 1111;
+            position: absolute;
+            top: 97%;
+
+
+        }
+
+        .title-slider2 {
+
+            font-size: 50px;
+            color: green;
+            position: absolute;
+            top: 42%;
+            left: 21%;
+            z-index: 11;
+        }
+
+        .title-slider3 {
+
+            font-size: 23px;
+            color: rgb(179, 176, 176);
+            position: absolute;
+            top: 60%;
+            left: 21%;
+            z-index: 11;
+        }
+
+
+        .montañassecondslider {
+            position: relative;
+            top: 62%;
+        }
+
+        .cochesSecondSlider {
+            position: relative;
+            top: 62%;
+        }
+    </style>
+
+
+
+
+    <header class="header">
+
+        <div id="cookieModal" class="modal">
+            <div class="modal-content">
+                <h2>Esta web utiliza cookies</h2>
+                <img src="http://localhost/catalogoEcodeck/wordpress/wp-content/themes/Ecodeck/images/cookiesimages.jpg"
+                    alt="Ilustración de galletas">
+                <div class="info-div">
+
+                    <p>ECODECK usa cookies propias (necesarias) y de terceros para personalizar el contenido, ofrecer
+                        anuncios
+                        personalizados, y análisis del tráfico.</p>
+
+                </div>
+                <p>Puedes Aceptar o configurar las cookies pulsando en Configurar.</p>
+                <a href="ruta/a/informacion_de_cookies.html">Leer toda la información de cookies de la web.</a>
+                <div class="buttons">
+                    <button class="btn" id="configButton">Configurar</button>
+                    <button class="btn" id="rejectButton">Rechazar</button>
+                    <button class="btn" id="acceptButton">Aceptar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="cookieModal" class="modal">
+            <div class="modal-content">
+                <h2>Esta web utiliza cookies</h2>
+                <img src="http://localhost/catalogoEcodeck/wordpress/wp-content/themes/Ecodeck/images/cookiesimages.jpg"
+                    alt="Ilustración de galletas">
+                <div class="info-div">
+
+                    <p>ECODECK usa cookies propias (necesarias) y de terceros para personalizar el contenido, ofrecer
+                        anuncios
+                        personalizados, y análisis del tráfico.</p>
+
+                </div>
+                <p>Puedes Aceptar o configurar las cookies pulsando en Configurar.</p>
+                <a href="ruta/a/informacion_de_cookies.html">Leer toda la información de cookies de la web.</a>
+                <div class="buttons">
+                    <button class="btn" id="configButton">Configurar</button>
+                    <button class="btn" id="rejectButton">Rechazar</button>
+                    <button class="btn" id="acceptButton">Aceptar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="configModal" class="modal">
+            <div class="modal-content">
+                <h2>Personalizar cookies</h2>
+                <p>Selecciona las cookies que quieres permitir:</p>
+                <form id="cookieForm" class="cookieForm">
+                    <label>
+                        <input type="checkbox" name="necessary" disabled checked>
+                        Necesarias
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="functionality">
+                        Funcionalidad
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="analytics">
+                        Análisis y rendimiento
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="advertising">
+                        Publicidad
+                    </label><br>
+                    <a href="ruta/a/informacion_de_cookies.html">Leer toda la información de cookies de la web.</a>
+                    <!-- <button type="button" id="saveConfigButton" class="btn">Guardar configuración</button> -->
+                </form>
+                <div class="buttons">
+                    <button class="btn" id="backButton">Volver</button>
+                    <button class="btn" id="acceptAllConfigButton">Aceptar todo</button>
+                    <button class="btn" id="acceptSelectionConfigButton">Aceptar selección</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="cookieStatus"></div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var cookieModal = document.getElementById("cookieModal");
+                var configModal = document.getElementById("configModal");
+                var configButton = document.getElementById("configButton");
+                var rejectButton = document.getElementById("rejectButton");
+                var acceptButton = document.getElementById("acceptButton");
+                var saveConfigButton = document.getElementById("saveConfigButton");
+                var backButton = document.getElementById("backButton");
+                var acceptAllConfigButton = document.getElementById("acceptAllConfigButton");
+                var acceptSelectionConfigButton = document.getElementById("acceptSelectionConfigButton");
+                var cookieForm = document.getElementById("cookieForm");
+                var cookieStatus = document.getElementById("cookieStatus");
+
+                function setCookie(name, value, days) {
+                    let expires = "";
+                    if (days) {
+                        const date = new Date();
+                        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                        expires = "; expires=" + date.toUTCString();
+                    }
+                    document.cookie = name + "=" + (value || "") + expires + "; path=/; domain=localhost; SameSite=Strict";
+                    // Cuando tengamos dominio
+                }
+
+                function getCookie(name) {
+                    const nameEQ = name + "=";
+                    const ca = document.cookie.split(';');
+                    for (let i = 0; i < ca.length; i++) {
+                        let c = ca[i];
+                        while (c.charAt(0) === ' ') c = c.substring(1);
+                        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                    }
+                    return null;
+                }
+
+                if (getCookie("cookie_consent") !== "accepted") {
+                    cookieModal.style.display = "block";
+                } else {
+                    cookieModal.style.display = "none";
+                }
+
+                configButton.onclick = function () {
+                    cookieModal.style.display = "none";
+                    configModal.style.display = "block";
+                }
+
+                rejectButton.onclick = function () {
+                    localStorage.setItem("cookiesAccepted", "false");
+                    localStorage.setItem("functionalityCookies", "false");
+                    localStorage.setItem("analyticsCookies", "false");
+                    localStorage.setItem("advertisingCookies", "false");
+                    setCookie("cookie_consent", "rejected", 365);
+                    cookieModal.style.display = "none";
+                }
+
+                acceptButton.onclick = function () {
+                    var formData = new FormData(cookieForm);
+                    localStorage.setItem("cookiesAccepted", "true");
+                    localStorage.setItem("functionalityCookies", formData.get("functionality") === "on");
+                    localStorage.setItem("analyticsCookies", formData.get("analytics") === "on");
+                    localStorage.setItem("advertisingCookies", formData.get("advertising") === "on");
+                    setCookie("cookie_consent", "accepted", 365);
+                    cookieModal.style.display = "none";
+                }
+
+                backButton.onclick = function () {
+                    configModal.style.display = "none";
+                    cookieModal.style.display = "block";
+                }
+
+                acceptAllConfigButton.onclick = function () {
+                    localStorage.setItem("cookiesAccepted", "true");
+                    localStorage.setItem("functionalityCookies", "true");
+                    localStorage.setItem("analyticsCookies", "true");
+                    localStorage.setItem("advertisingCookies", "true");
+                    setCookie("cookie_consent", "accepted", 365);
+                    configModal.style.display = "none";
+                }
+
+                acceptSelectionConfigButton.onclick = function () {
+                    var formData = new FormData(cookieForm);
+                    localStorage.setItem("cookiesAccepted", "true");
+                    localStorage.setItem("functionalityCookies", formData.get("functionality") === "on");
+                    localStorage.setItem("analyticsCookies", formData.get("analytics") === "on");
+                    localStorage.setItem("advertisingCookies", formData.get("advertising") === "on");
+                    setCookie("cookie_consent", "accepted", 365);
+                    configModal.style.display = "none";
+
+                }
+            });
+        </script>
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="section.html" class="nav__logo">
+                    <img src="./PUBLIC/Images/logo2 (1).png" alt="Logo">
+                </a>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__burger"></i>
+                    <i class="ri-close-line nav__close"></i>
+                </div>
+            </div>
+
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+
+
+
+                    <li class="dropdown__item">
+                        <div class="nav__link">
+                            Productos <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    Rejillas<i class="ri-pie-chart-line"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    Caminos <i class="ri-road-line"></i>
+                                </a>
+                            </li>
+
+
+                            <li class="dropdown__subitem">
+                                <div class="dropdown__link">
+                                    <i class="ri-bar-chart-line"></i>Suelos <i class="ri-add-line dropdown__add"></i>
+                                </div>
+
+                                <ul class="dropdown__submenu">
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-file-list-line"></i>Aparcamientos
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-cash-line"></i> Agua
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-refund-2-line"></i> Grava
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="SobreEcodeckLess.html" class="nav__link">Sobre Ecodeck</a></li>
+                    <li><a href="http://localhost/catalogoEcodeck/wordpress/tienda/" class="nav__link">Distribuidor
+                            Oficial</a></li>
+
+
+                    <li class="dropdown__item">
+
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-user-line"></i> Profiles
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-lock-line"></i> Accounts
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-message-3-line"></i> Messages
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <div class="bottonNavDiv">
+                        <button class="contacButton">
+                            <a class="ancleButtonContact" href="contactPage.html">Contacta</a>
+                        </button>
+
+
+                    </div>
+
+                </ul>
+
+
+
+            </div>
+        </nav>
+    </header>
+    <div id="overlay"></div>
+
+    <script>
+        const showMenu = (toggleId, navId) => {
+            const toggle = document.getElementById(toggleId);
+            const nav = document.getElementById(navId);
+            const overlay = document.getElementById('overlay');
+
+            toggle.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    nav.classList.toggle('show-menu');
+                    toggle.classList.toggle('show-icon');
+                    overlay.style.display = nav.classList.contains('show-menu') ? 'block' : 'none';
+                }
+            });
+
+            //function para controloar el overlay
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    nav.classList.remove('show-menu');
+                    toggle.classList.remove('show-icon');
+                    overlay.style.display = 'none';
+                }
+            });
+        };
+
+        showMenu('nav-toggle', 'nav-menu');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentSlide = 1;
+            const totalSlides = document.querySelectorAll('.carousel__slide').length;
+            const intervalTime = 5000; // 5 segundos
+            const indicators = document.querySelectorAll('.carousel__indicator');
+            const controls = document.querySelectorAll('.carousel__control');
+            const activators = document.querySelectorAll('.carousel__activator');
+            const track = document.querySelector('.carousel__track');
+
+            function showSlide(slideIndex) {
+                activators[slideIndex - 1].checked = true;
+                currentSlide = slideIndex;
+
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index + 1 === slideIndex);
+                });
+
+                track.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide % totalSlides) + 1;
+                showSlide(currentSlide);
+            }
+
+            // Automatización del carrusel
+            setInterval(nextSlide, intervalTime);
+
+            // Evento para controles manuales
+            controls.forEach(control => {
+                control.addEventListener('click', () => {
+                    if (control.classList.contains('carousel__control--forward')) {
+                        nextSlide();
+                    } else {
+                        currentSlide = (currentSlide - 2 + totalSlides) % totalSlides + 1;
+                        showSlide(currentSlide);
+                    }
+                });
+            });
+
+            // Evento para indicadores
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    showSlide(index + 1);
+                });
+            });
+        });
+    </script>
+    <style>
+
+
+
+    </style>
+
+    <section class="carousel-container">
+        <div id="carousel" class="my-carousel carousel--translate">
+            <input class="carousel__activator" type="radio" name="carousel" id="1" value="1" checked>
+            <input class="carousel__activator" type="radio" name="carousel" id="2" value="2">
+            <input class="carousel__activator" type="radio" name="carousel" id="3" value="3">
+            <input class="carousel__activator" type="radio" name="carousel" id="4" value="4">
+            <input class="carousel__activator" type="radio" name="carousel" id="5" value="5">
+          
+            <ul class="carousel__track">
+                <li class="carousel__slide">
+                    <div class="slider-content__container">
+
+
+                        <p class="title-slider1">Las rejillas Ecodeck son...</p>
+                        <h1 class="title-slider2">Tu nueva zona de aparcamiento</h1>
+                        <h4 class="title-slider3">100%,ecologico,permeable y resistente</h4>
+
+                        <div class="container-imagenes">
+
+                            <div class="montañas">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="1920" height="360" viewBox="0 0 1920 360">
+                                    <defs>
+                                        <clipPath id="clip-path">
+                                            <rect id="Rectángulo_364" data-name="Rectángulo 364" width="1920"
+                                                height="151" transform="translate(0 240)" fill="#fff" />
+                                        </clipPath>
+                                    </defs>
+                                    <g id="Grupo_129" data-name="Grupo 129" transform="translate(0 -240)">
+                                        <g id="Grupo_125" data-name="Grupo 125">
+                                            <g id="Enmascarar_grupo_16" data-name="Enmascarar grupo 16"
+                                                clip-path="url(#clip-path)">
+                                                <g id="Grupo_100" data-name="Grupo 100">
+                                                    <path id="Polígono_5" data-name="Polígono 5"
+                                                        d="M126.065,10.4a17,17,0,0,1,22.871,0l93.528,85.025c11.5,10.452,4.1,29.579-11.435,29.579H43.972c-15.539,0-22.933-19.127-11.435-29.579Z"
+                                                        transform="translate(654 254)" fill="#ebebeb" />
+                                                    <path id="Polígono_11" data-name="Polígono 11"
+                                                        d="M311.272,2.452a17,17,0,0,1,12.455,0l227.914,89.73C569.107,99.058,564.184,125,545.414,125H89.586c-18.77,0-23.693-25.942-6.228-32.818Z"
+                                                        transform="translate(1331 260)" fill="#ebebeb" />
+                                                    <path id="Polígono_10" data-name="Polígono 10"
+                                                        d="M126.065,10.4a17,17,0,0,1,22.871,0l93.528,85.025c11.5,10.452,4.1,29.579-11.435,29.579H43.972c-15.539,0-22.933-19.127-11.435-29.579Z"
+                                                        transform="translate(738 260)" fill="#ebebeb" />
+                                                    <path id="Polígono_3" data-name="Polígono 3"
+                                                        d="M267.25,6.83a27,27,0,0,1,25.5,0L465.173,99.2c24.753,13.261,15.331,50.8-12.75,50.8H107.577c-28.081,0-37.5-37.539-12.75-50.8Z"
+                                                        transform="translate(-24 240)" fill="#ebebeb" />
+                                                    <path id="Polígono_2" data-name="Polígono 2"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(-132 266)" fill="#e5e5e5" />
+                                                    <path id="Polígono_4" data-name="Polígono 4"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(164 255)" fill="#e5e5e5" />
+                                                    <path id="Polígono_8" data-name="Polígono 8"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(1197 255)" fill="#e5e5e5" />
+                                                    <path id="Polígono_6" data-name="Polígono 6"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(369 265)" fill="#e5e5e5" />
+                                                    <path id="Polígono_7" data-name="Polígono 7"
+                                                        d="M558.663,1.293a27,27,0,0,1,11.675,0L888.02,71.639C919.533,78.617,914.459,125,882.182,125H246.818c-32.277,0-37.351-46.383-5.837-53.361Z"
+                                                        transform="translate(487 266)" fill="#e5e5e5" />
+                                                    <path id="Polígono_9" data-name="Polígono 9"
+                                                        d="M558.663,1.293a27,27,0,0,1,11.675,0L888.02,71.639C919.533,78.617,914.459,125,882.182,125H246.818c-32.277,0-37.351-46.383-5.837-53.361Z"
+                                                        transform="translate(1355 266)" fill="#e5e5e5" />
+                                                </g>
+                                            </g>
+                                            <path id="Trazado_361" data-name="Trazado 361" d="M0,0H1919V225H0Z"
+                                                transform="translate(1 375)" fill="#e5e5e5" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <div class="coches">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="578.209" height="122.115" viewBox="0 0 578.209 122.115">
+                                <defs>
+                                    <clipPath id="clip-path">
+                                        <rect id="Rectángulo_358" data-name="Rectángulo 358" width="167.631"
+                                            height="112.568" transform="translate(0 0)" fill="none" />
+                                    </clipPath>
+                                    <clipPath id="clip-path-2">
+                                        <rect id="Rectángulo_359" data-name="Rectángulo 359" width="162.334"
+                                            height="113.734" transform="translate(0 0)" fill="none" />
+                                    </clipPath>
+                                    <clipPath id="clip-path-3">
+                                        <rect id="Rectángulo_360" data-name="Rectángulo 360" width="167.631"
+                                            height="120.95" fill="none" />
+                                    </clipPath>
+                                </defs>
+                                <g id="Grupo_128" data-name="Grupo 128" transform="translate(-1016.791 -465.05)">
+                                    <g id="Grupo_89" data-name="Grupo 89" transform="translate(1016.791 474.598)">
+                                        <g id="Grupo_88" data-name="Grupo 88" clip-path="url(#clip-path)">
+                                            <path id="Trazado_221" data-name="Trazado 221"
+                                                d="M149.129,29.257c2.506,1.938,9.223,5.219,11,7.5,3.84,4.929,5.174,15.482,6,21.5-11.573-8.294-30.087-4.892-40.748,4-6.237,5.2-10.623,14.193-11.5,14.5-2.832.989-57.151.945-60,0-2.976-.989-15.458-35.029-52.748-19,.718-5.24,2.861-16.959,6-21,1.873-2.411,9.276-5.876,11.5-7.5.09-.066.606.178,2-1l126-.5c1.835,1.716,2.385,1.411,2.5,1.5"
+                                                fill="#86c7c3" />
+                                            <path id="Trazado_222" data-name="Trazado 222"
+                                                d="M166.128,58.256c.187,1.363.378,2.617.5,4-3.4-3.432-4.933-3.99-9.5-5-25.9-5.727-28.4,16.1-25.249,17.5,8.122.172,16.135-.007,24.249-.5,4.673-.284,6.572,2.454,11.5-4,.047,2.3-.591,16.466-1,17.749-2.264,7.1-12.075,5.4-12.5,6-1.357,1.919,5.607,21.238-13.749,18.249-12.886-1.989-7.118-17.942-9.5-19-4.387-1.947-84.034,1.5-96,0-2.472,1.1,4.7,21.707-15,19-12.96-1.781-8.3-16.178-9.249-17.749-.33-.547-8.063-.71-10-7C-.289,84.511.04,73.763.133,69.756c3.364,7.639,7.763,4.364,10,4.5,8.446.51,16.8.658,25.249.5,3.2-1.419,1.294-23.385-25.249-17.5a19.1,19.1,0,0,0-9,4c.016-.174-.456-.175,0-3.5,37.291-16.029,49.772,18.011,52.748,19,2.847.946,57.167.99,60,0,.876-.306,5.262-9.3,11.5-14.5,10.662-8.892,29.175-12.294,40.749-4"
+                                                fill="#707070" />
+                                            <path id="Trazado_223" data-name="Trazado 223"
+                                                d="M146.629,27.757l-126,.5c6.119-5.172,13.821-26.05,31.749-28,3.156-.343,60.224-.345,63.5,0,20.42,2.152,23.074,20.323,30.749,27.5"
+                                                fill="#6dbfc2" />
+                                            <path id="Trazado_224" data-name="Trazado 224"
+                                                d="M18.633,29.257c-2.224,1.624-9.627,5.089-11.5,7.5-12.689-7.127,4.244-17.94,11.5-7.5"
+                                                fill="#1d2c34" />
+                                            <path id="Trazado_225" data-name="Trazado 225"
+                                                d="M160.129,36.757c-1.777-2.28-8.494-5.562-11-7.5,6.5-9.791,24.453-1.2,11,7.5"
+                                                fill="#1b3237" />
+                                            <path id="Trazado_226" data-name="Trazado 226"
+                                                d="M10.133,57.256c-5.88,4.615-4.96,11.932,0,17-2.237-.135-6.635,3.14-10-4.5a42.737,42.737,0,0,1,1-8.5,19.1,19.1,0,0,1,9-4"
+                                                fill="#ce2648" />
+                                            <path id="Trazado_227" data-name="Trazado 227"
+                                                d="M10.133,74.256c-4.96-5.067-5.88-12.385,0-17,26.543-5.886,28.45,16.079,25.249,17.5-8.453.158-16.8.01-25.249-.5"
+                                                fill="#f8e594" />
+                                            <path id="Trazado_228" data-name="Trazado 228"
+                                                d="M166.628,62.256a42.3,42.3,0,0,1,1,8c-4.928,6.454-6.827,3.716-11.5,4,5.469-4.664,6.5-11.867,1-17,4.567,1.01,6.1,1.568,9.5,5"
+                                                fill="#ce2648" />
+                                            <path id="Trazado_229" data-name="Trazado 229"
+                                                d="M157.129,57.256c5.5,5.132,4.469,12.336-1,17-8.114.493-16.128.672-24.249.5-3.15-1.4-.65-23.226,25.249-17.5"
+                                                fill="#f8e594" />
+                                        </g>
+                                    </g>
+                                    <g id="Grupo_91" data-name="Grupo 91" transform="translate(1224.729 473.432)">
+                                        <g id="Grupo_90" data-name="Grupo 90" clip-path="url(#clip-path-2)">
+                                            <path id="Trazado_230" data-name="Trazado 230"
+                                                d="M143.665,31.931c.513.976,5.172,9.466,4.25,10H15.419c-1.211-.074,1.923-6.367,3.75-10C34.161,2.114,65.892-2.389,96.416.932c22.117,2.406,36.842,11.211,47.249,31"
+                                                fill="#6dbfc2" />
+                                            <path id="Trazado_231" data-name="Trazado 231"
+                                                d="M161.165,92.929c-2.325,4.876-7.8,3.617-8.5,4.25-1,.908.785,19.117-16.249,16.249-10.814-1.82-10.5-16.557-11.5-17-4-1.766-76.5,1.356-87.5,0-1.68,22.446-23.839,20.688-27.249,7.25-.349-1.372.359-5.182,0-6-.745-1.694-6.321,1.076-9-4.75Z"
+                                                fill="#707070" />
+                                            <path id="Trazado_232" data-name="Trazado 232"
+                                                d="M19.169,31.931c-1.827,3.633-4.962,9.926-3.75,10h132.5c.923-.534-3.737-9.024-4.25-10,9.179-2.275,21.083,1.82,16,13.25-1.364,3.066-5.421,4.636-5.5,5-.2.937,5.884,7.2,7.5,17.5.762,4.859,1.188,21.707-.5,25.249H1.17C-.526,89.241-.087,72.875.67,67.68c1.808-12.42,7.65-16.549,7.5-17.5-.061-.385-4.366-2.011-6-5-6.286-11.5,7.2-15.954,17-13.25"
+                                                fill="#2e8597" />
+                                            <path id="Trazado_233" data-name="Trazado 233"
+                                                d="M17.919,52.43c8.545-1.5,14.856,5.432,17.749,12.75l-28.749.75c-1.468-.85,5.271-12.493,11-13.5"
+                                                fill="#d2d3d5" />
+                                            <path id="Trazado_234" data-name="Trazado 234"
+                                                d="M138.916,52.43c8.385-1.47,14.53,5.3,16.749,12.75l-28.249.75c-2-.766,6.208-12.572,11.5-13.5"
+                                                fill="#d2d3d5" />
+                                        </g>
+                                    </g>
+                                    <g id="Grupo_93" data-name="Grupo 93" transform="translate(1427.369 465.05)">
+                                        <g id="Grupo_92" data-name="Grupo 92" transform="translate(0 0)"
+                                            clip-path="url(#clip-path-3)">
+                                            <path id="Trazado_235" data-name="Trazado 235"
+                                                d="M24.458,22.927c-.522.745-1.043,2.67-1.915,2.92-.133.038-.026-.758-2.681-.73-6.052.061-24.507-.023-18.77-9.489,13.435-3.7,17.624-5.067,23.367,7.3"
+                                                transform="translate(0 5.994)" fill="#127e93" />
+                                            <path id="Trazado_236" data-name="Trazado 236"
+                                                d="M113.408,21.812c-6.584-11.045-8.2.426-15.322,3.65-.732.331-3.356-.308-4.6,0-2.947-5.887-.673-7.619-.766-8.029,19.135-8.509,26.8.4,20.685,4.379"
+                                                transform="translate(48.952 6.379)" fill="#127e93" />
+                                            <path id="Trazado_237" data-name="Trazado 237"
+                                                d="M111.284,20.792c-2.4,1.561-11.539,2.034-13.79,5.109-.188-1.066.374-1.682-1.532-1.46,7.119-3.223,8.738-14.695,15.322-3.65"
+                                                transform="translate(51.075 7.4)" fill="#104e58" />
+                                            <path id="Trazado_238" data-name="Trazado 238"
+                                                d="M131.582,23.812c.093.41-2.18,2.142.766,8.029-.239.06-.524-.055-.766,0-4.621-7.353-10.251-25.16-20.3-27.007-3.536-.65-68.473-.61-72.016,0-6.4,1.1-14.924,9.971-18,15.328l-2.3-1.46C23.2,11.624,29.127,2.084,38.5.455c3.579-.622,69.2-.59,72.782,0,9.353,1.539,18.431,15.14,20.3,23.357"
+                                                transform="translate(10.092 0)" fill="#104e58" />
+                                            <path id="Trazado_239" data-name="Trazado 239"
+                                                d="M24.454,14.272c-1.407,2.448-8.763,17.445-1.149,14.6,2.542-.95,6.5-24.394,24.133-.73-.1,0-.576,1.434-1.149,1.46-8.423.385-27.435-.826-33.326.73V25.221c2.655-.028,2.548.768,2.681.73.872-.25,1.393-2.175,1.915-2.92,1.7-2.423,2.657-6.975,4.6-10.219Z"
+                                                transform="translate(6.899 5.891)" fill="#0a2832" />
+                                            <path id="Trazado_240" data-name="Trazado 240"
+                                                d="M101.776,24.342c.242-.055.527.06.766,0,1.241-.308,3.864.331,4.6,0,1.906-.222,1.344.394,1.532,1.46.123.7-.138,1.5,0,2.19-11.236.213-22.507-1.187-33.709-1.46,9.373-22.765,21.039-.464,22.6,0,5.161,1.537,3.915-2.121,4.214-2.19"
+                                                transform="translate(39.898 7.499)" fill="#17232b" />
+                                            <path id="Trazado_241" data-name="Trazado 241"
+                                                d="M132.364,30.468c-.3.069.947,3.727-4.214,2.19-1.561-.464-13.228-22.765-22.6,0-16.8-.41-44.34-.669-60.524,0-17.635-23.664-21.591-.22-24.133.73-7.614,2.847-.257-12.15,1.149-14.6,3.08-5.358,11.608-14.226,18-15.328,3.543-.61,68.479-.65,72.016,0,10.052,1.845,15.681,19.654,20.3,27.007"
+                                                transform="translate(9.311 1.374)" fill="#6dbfc2" />
+                                            <path id="Trazado_242" data-name="Trazado 242"
+                                                d="M29.542,63.321v7.3c-.064,5.108.087,10.222,0,15.328-.034,1.978.455,4.029-.766,5.839-2.985-.142-23.807-.142-24.516-1.095-.775-1.042.446-21.5,0-25.547-.095-.869-2.206-.893-2.3-1.825,9.19-.109,18.392.147,27.58,0"
+                                                transform="translate(1.044 29.103)" fill="#707070" />
+                                            <path id="Trazado_243" data-name="Trazado 243"
+                                                d="M115.51,64.042l-.766,27.372c-7.882.866-15.853.095-23.75.365-1.175.114-.755-2.362-.766-5.109-.021-5.352.069-10.708,0-16.058-.031-2.419.513-5.139-.766-7.3,8.85.185,17.164-.282,26.048.73"
+                                                transform="translate(47.616 29.112)" fill="#707070" />
+                                            <path id="Trazado_244" data-name="Trazado 244"
+                                                d="M94.276,62.334c10.645.095,21.485,1.235,32.177,1.46,1.279,2.161.735,4.88.766,7.3H19.962v-7.3c12.738-.2,25.605-1.372,38.306-1.46,11.993-.083,24.015-.107,36.008,0"
+                                                transform="translate(10.625 28.63)" fill="#064152" />
+                                            <path id="Trazado_245" data-name="Trazado 245"
+                                                d="M114.305,23.441c11.2.273,22.473,1.673,33.709,1.46,1.39,6.96,2.151,2.728,6.512,5.839,18.068,12.893,11.4,33.385,11.109,52.189-1.914,2.12-.552-.08-3.064-.365-8.884-1.013-17.2-.546-26.048-.73-10.692-.225-21.533-1.366-32.177-1.46,3.915-7.952-21.062-3.06-35.625-4.379l-.383,4.379c-12.7.088-25.569,1.255-38.306,1.46-9.189.147-18.39-.111-27.58,0C.833,65.3-3.457,31.641,19.306,25.631c5.891-1.556,24.9-.345,33.326-.73.573-.026,1.054-1.455,1.149-1.46,16.185-.669,43.727-.41,60.524,0"
+                                                transform="translate(0.555 10.59)" fill="#127e93" />
+                                            <path id="Trazado_246" data-name="Trazado 246"
+                                                d="M45.978,46.312H79.688c5.643,26.5-2.118,16.427-34.476,18.248Z"
+                                                transform="translate(24.064 21.295)" fill="#ebe4af" />
+                                            <path id="Trazado_247" data-name="Trazado 247"
+                                                d="M19.483,38.323c16.4-1.123,10.934,24.242-3.831,16.058-7.225-4-4.408-15.493,3.831-16.058"
+                                                transform="translate(6.124 17.605)" fill="#ebe4af" />
+                                            <path id="Trazado_248" data-name="Trazado 248"
+                                                d="M94,38.365c12.6-2.048,14.44,15.378,3.831,16.788C85.427,56.8,84.044,39.982,94,38.365"
+                                                transform="translate(46.527 17.564)" fill="#ebe4af" />
+                                            <path id="Trazado_249" data-name="Trazado 249"
+                                                d="M80.97,63.786c-11.993-.107-24.015-.083-36.008,0l.383-4.379c14.562,1.321,39.54-3.572,35.625,4.379"
+                                                transform="translate(23.931 27.178)" fill="#35adb4" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+
+
+
+                        </div>
+
+                        <div class="suelos">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1905" height="12" viewBox="0 0 1905 12">
+                                <g id="Grupo_130" data-name="Grupo 130" transform="translate(-8 -586)">
+                                    <g id="Grupo_121" data-name="Grupo 121" transform="translate(-7 207)">
+                                        <g id="Grupo_118" data-name="Grupo 118" transform="translate(-350)">
+                                            <rect id="Rectángulo_371" data-name="Rectángulo 371" width="59" height="12"
+                                                transform="translate(1004 379)" />
+                                            <rect id="Rectángulo_376" data-name="Rectángulo 376" width="59" height="12"
+                                                transform="translate(1217 379)" />
+                                            <rect id="Rectángulo_379" data-name="Rectángulo 379" width="59" height="12"
+                                                transform="translate(1430 379)" />
+                                            <rect id="Rectángulo_372" data-name="Rectángulo 372" width="59" height="12"
+                                                transform="translate(1075 379)" />
+                                            <rect id="Rectángulo_375" data-name="Rectángulo 375" width="59" height="12"
+                                                transform="translate(1288 379)" />
+                                            <rect id="Rectángulo_378" data-name="Rectángulo 378" width="59" height="12"
+                                                transform="translate(1501 379)" />
+                                            <rect id="Rectángulo_373" data-name="Rectángulo 373" width="59" height="12"
+                                                transform="translate(1146 379)" />
+                                            <rect id="Rectángulo_374" data-name="Rectángulo 374" width="59" height="12"
+                                                transform="translate(1359 379)" />
+                                            <rect id="Rectángulo_377" data-name="Rectángulo 377" width="59" height="12"
+                                                transform="translate(1572 379)" />
+                                        </g>
+                                        <g id="Grupo_120" data-name="Grupo 120" transform="translate(-989)">
+                                            <rect id="Rectángulo_371-2" data-name="Rectángulo 371" width="59"
+                                                height="12" transform="translate(1004 379)" />
+                                            <rect id="Rectángulo_376-2" data-name="Rectángulo 376" width="59"
+                                                height="12" transform="translate(1217 379)" />
+                                            <rect id="Rectángulo_379-2" data-name="Rectángulo 379" width="59"
+                                                height="12" transform="translate(1430 379)" />
+                                            <rect id="Rectángulo_372-2" data-name="Rectángulo 372" width="59"
+                                                height="12" transform="translate(1075 379)" />
+                                            <rect id="Rectángulo_375-2" data-name="Rectángulo 375" width="59"
+                                                height="12" transform="translate(1288 379)" />
+                                            <rect id="Rectángulo_378-2" data-name="Rectángulo 378" width="59"
+                                                height="12" transform="translate(1501 379)" />
+                                            <rect id="Rectángulo_373-2" data-name="Rectángulo 373" width="59"
+                                                height="12" transform="translate(1146 379)" />
+                                            <rect id="Rectángulo_374-2" data-name="Rectángulo 374" width="59"
+                                                height="12" transform="translate(1359 379)" />
+                                            <rect id="Rectángulo_377-2" data-name="Rectángulo 377" width="59"
+                                                height="12" transform="translate(1572 379)" />
+                                        </g>
+                                        <g id="Grupo_119" data-name="Grupo 119" transform="translate(289)">
+                                            <rect id="Rectángulo_371-3" data-name="Rectángulo 371" width="59"
+                                                height="12" transform="translate(1004 379)" />
+                                            <rect id="Rectángulo_376-3" data-name="Rectángulo 376" width="59"
+                                                height="12" transform="translate(1217 379)" />
+                                            <rect id="Rectángulo_379-3" data-name="Rectángulo 379" width="59"
+                                                height="12" transform="translate(1430 379)" />
+                                            <rect id="Rectángulo_372-3" data-name="Rectángulo 372" width="59"
+                                                height="12" transform="translate(1075 379)" />
+                                            <rect id="Rectángulo_375-3" data-name="Rectángulo 375" width="59"
+                                                height="12" transform="translate(1288 379)" />
+                                            <rect id="Rectángulo_378-3" data-name="Rectángulo 378" width="59"
+                                                height="12" transform="translate(1501 379)" />
+                                            <rect id="Rectángulo_373-3" data-name="Rectángulo 373" width="59"
+                                                height="12" transform="translate(1146 379)" />
+                                            <rect id="Rectángulo_374-3" data-name="Rectángulo 374" width="59"
+                                                height="12" transform="translate(1359 379)" />
+                                            <rect id="Rectángulo_377-3" data-name="Rectángulo 377" width="59"
+                                                height="12" transform="translate(1572 379)" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+
+                        </div>
+
+
+                        <div class="nube1">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="99.414" height="78.994"
+                                viewBox="0 0 99.414 78.994">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M97.389,42.926a21.5,21.5,0,0,1,4.6,13.2A21.773,21.773,0,0,1,80.238,77.876a21.519,21.519,0,0,1-7.71-1.424,30.665,30.665,0,0,1-40.5,0,21.519,21.519,0,0,1-7.71,1.424,21.747,21.747,0,0,1,0-43.494,21.545,21.545,0,0,1,3.066.218c.1-.142.226-.267.332-.4a17.878,17.878,0,0,1-.291-2.92A17.328,17.328,0,0,1,44.729,13.967c.469,0,.934.02,1.4.057a23.8,23.8,0,0,1,37.159,0c.461-.037.922-.057,1.388-.057A17.24,17.24,0,0,1,97.389,42.926Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" />
+                            </svg>
+
+
+                        </div>
+
+                        <div class="nube2">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26.691" height="15.014"
+                                viewBox="0 0 26.691 15.014">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M29.262,20.107A4.548,4.548,0,0,0,25.8,15.689a6.2,6.2,0,0,0-11.071-3.684,3.483,3.483,0,0,0-6.2,2.625,5.052,5.052,0,1,0-.9,10.024H24.726a4.546,4.546,0,0,0,4.536-4.547Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" opacity="0.47" />
+                            </svg>
+
+
+                        </div>
+                        <div class="nube3">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39.351" height="31.268"
+                                viewBox="0 0 39.351 31.268">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M40.1,20.071A8.51,8.51,0,0,1,41.922,25.3a8.619,8.619,0,0,1-8.608,8.608,8.518,8.518,0,0,1-3.052-.564,12.138,12.138,0,0,1-16.031,0,8.518,8.518,0,0,1-3.052.564,8.608,8.608,0,0,1,0-17.216,8.528,8.528,0,0,1,1.214.086c.04-.056.09-.106.131-.16a7.077,7.077,0,0,1-.115-1.156,6.859,6.859,0,0,1,6.85-6.852c.186,0,.37.008.552.022a9.42,9.42,0,0,1,14.709,0c.183-.014.365-.022.549-.022A6.824,6.824,0,0,1,40.1,20.071Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" opacity="0.69" />
+                            </svg>
+
+
+
+
+                        </div>
+                        <div class="nube4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39.351" height="31.268"
+                                viewBox="0 0 39.351 31.268">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M40.1,20.071A8.51,8.51,0,0,1,41.922,25.3a8.619,8.619,0,0,1-8.608,8.608,8.518,8.518,0,0,1-3.052-.564,12.138,12.138,0,0,1-16.031,0,8.518,8.518,0,0,1-3.052.564,8.608,8.608,0,0,1,0-17.216,8.528,8.528,0,0,1,1.214.086c.04-.056.09-.106.131-.16a7.077,7.077,0,0,1-.115-1.156,6.859,6.859,0,0,1,6.85-6.852c.186,0,.37.008.552.022a9.42,9.42,0,0,1,14.709,0c.183-.014.365-.022.549-.022A6.824,6.824,0,0,1,40.1,20.071Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" opacity="0.69" />
+                            </svg>
+
+
+
+
+                        </div>
+                        <div class="nube5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26.691" height="15.014"
+                                viewBox="0 0 26.691 15.014">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M29.262,20.107A4.548,4.548,0,0,0,25.8,15.689a6.2,6.2,0,0,0-11.071-3.684,3.483,3.483,0,0,0-6.2,2.625,5.052,5.052,0,1,0-.9,10.024H24.726a4.546,4.546,0,0,0,4.536-4.547Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" opacity="0.47" />
+                            </svg>
+
+
+
+
+
+                        </div>
+                        <div class="nube6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64.808" height="36.455"
+                                viewBox="0 0 64.808 36.455">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M67.379,35.053a11.042,11.042,0,0,0-8.417-10.726,15.055,15.055,0,0,0-26.88-8.945A8.456,8.456,0,0,0,17.02,21.757a12.267,12.267,0,1,0-2.188,24.338H56.366A11.037,11.037,0,0,0,67.379,35.053Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+                        </div>
+
+                        <div class="nube8">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="105.875" height="70.583"
+                                viewBox="0 0 105.875 70.583">
+                                <path id="Icon_ionic-md-cloud" data-name="Icon ionic-md-cloud"
+                                    d="M86.487,33.44a33.031,33.031,0,0,0-61.76-8.823,26.434,26.434,0,0,0,2.867,52.717H84.943A22.122,22.122,0,0,0,107,55.276,21.788,21.788,0,0,0,86.487,33.44Z"
+                                    transform="translate(-1.125 -6.75)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="nube9">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90.509" height="56.557"
+                                viewBox="0 0 90.509 56.557">
+                                <path id="Icon_ionic-ios-cloud" data-name="Icon ionic-ios-cloud"
+                                    d="M77.253,30.4A26.51,26.51,0,0,0,29.092,18.185a12.528,12.528,0,0,0-4.754-.937c-6.911,0-12.513,6.08-12.619,12.973A17.264,17.264,0,0,0,0,46.605c0,8.872,7.193,16.7,16.066,16.7H74.443c8.872,0,16.066-7.83,16.066-16.7A16.53,16.53,0,0,0,77.253,30.4Z"
+                                    transform="translate(0 -6.75)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                </li>
+
+
+                <li class="carousel__slide">
+
+                    <!-- Segundo carrousel -->
+                    <div class="slider-content__container">
+
+
+                        <p class="title-slider1">Las rejillas Ecodeck son...</p>
+                        <h1 class="title-slider2">Tu nueva carretera de graba</h1>
+                        <h4 class="title-slider3">100%,ecologico,permeable y resistente</h4>
+
+                        <div class="container-imagenes">
+
+                            <div class="montañassecondslider">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="1920" height="151" viewBox="0 0 1920 151">
+                                    <defs>
+                                        <clipPath id="clip-path">
+                                            <rect id="Rectángulo_365" data-name="Rectángulo 365" width="1920"
+                                                height="151" transform="translate(0 240)" fill="#fff" stroke="#707070"
+                                                stroke-width="1" />
+                                        </clipPath>
+                                    </defs>
+                                    <g id="Enmascarar_grupo_17" data-name="Enmascarar grupo 17"
+                                        transform="translate(0 -240)" clip-path="url(#clip-path)">
+                                        <g id="Grupo_101" data-name="Grupo 101">
+                                            <path id="Polígono_12" data-name="Polígono 12"
+                                                d="M126.065,10.4a17,17,0,0,1,22.871,0l93.528,85.025c11.5,10.452,4.1,29.579-11.435,29.579H43.972c-15.539,0-22.933-19.127-11.435-29.579Z"
+                                                transform="translate(654 254)" fill="#c5c5c5" />
+                                            <path id="Polígono_13" data-name="Polígono 13"
+                                                d="M311.272,2.452a17,17,0,0,1,12.455,0l227.914,89.73C569.107,99.058,564.184,125,545.414,125H89.586c-18.77,0-23.693-25.942-6.228-32.818Z"
+                                                transform="translate(1331 260)" fill="#c5c5c5" />
+                                            <path id="Polígono_14" data-name="Polígono 14"
+                                                d="M126.065,10.4a17,17,0,0,1,22.871,0l93.528,85.025c11.5,10.452,4.1,29.579-11.435,29.579H43.972c-15.539,0-22.933-19.127-11.435-29.579Z"
+                                                transform="translate(738 260)" fill="#c5c5c5" />
+                                            <path id="Polígono_15" data-name="Polígono 15"
+                                                d="M267.25,6.83a27,27,0,0,1,25.5,0L465.173,99.2c24.753,13.261,15.331,50.8-12.75,50.8H107.577c-28.081,0-37.5-37.539-12.75-50.8Z"
+                                                transform="translate(-24 240)" fill="#d3d3d3" />
+                                            <path id="Polígono_16" data-name="Polígono 16"
+                                                d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                transform="translate(-132 266)" fill="#b1b1b1" />
+                                            <path id="Polígono_17" data-name="Polígono 17"
+                                                d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                transform="translate(164 255)" fill="#b1b1b1" />
+                                            <path id="Polígono_18" data-name="Polígono 18"
+                                                d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                transform="translate(1197 255)" fill="#b1b1b1" />
+                                            <path id="Polígono_19" data-name="Polígono 19"
+                                                d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                transform="translate(369 265)" fill="#b1b1b1" />
+                                            <path id="Polígono_20" data-name="Polígono 20"
+                                                d="M558.663,1.293a27,27,0,0,1,11.675,0L888.02,71.639C919.533,78.617,914.459,125,882.182,125H246.818c-32.277,0-37.351-46.383-5.837-53.361Z"
+                                                transform="translate(487 266)" fill="#b1b1b1" />
+                                            <path id="Polígono_21" data-name="Polígono 21"
+                                                d="M558.663,1.293a27,27,0,0,1,11.675,0L888.02,71.639C919.533,78.617,914.459,125,882.182,125H246.818c-32.277,0-37.351-46.383-5.837-53.361Z"
+                                                transform="translate(1355 266)" fill="#b1b1b1" />
+                                        </g>
+                                    </g>
+                                </svg>
+
+                            </div>
+
+                        </div>
+
+                        <div class="cochesSecondSlider">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="265.151" height="121.691" viewBox="0 0 265.151 121.691">
+                                <defs>
+                                    <clipPath id="clip-path">
+                                        <rect id="Rectángulo_361" data-name="Rectángulo 361" width="265.151"
+                                            height="121.691" fill="none" />
+                                    </clipPath>
+                                </defs>
+                                <g id="Grupo_94" data-name="Grupo 94" clip-path="url(#clip-path)">
+                                    <path id="Trazado_250" data-name="Trazado 250"
+                                        d="M9.523,64.253c2.415,33.333,54.019,34.591,57.649.994,4.769-44.131-60.736-43.592-57.649-.994"
+                                        transform="translate(179.011 31.837)" fill="#3b3d42" />
+                                    <path id="Trazado_251" data-name="Trazado 251"
+                                        d="M16.582,96.75c-.805-7.186.91-13.414,3.976-19.879C31.827,53.1,64.065,55.918,72.243,80.847a104.711,104.711,0,0,1,2.982,15.9l113.31-.994c-3.087-42.6,62.418-43.137,57.649.994,22.908.63,22.175-29.373,12.921-43.237-12.2-18.275-59.655-15.891-79.516-16.4-3.31-.085-6.63.066-9.939,0-48.5-.972-97.1.726-145.613,0C21.256,35.439,43.443,9.457,46.4,6.3A38.5,38.5,0,0,0,51.37.337C40.632,1.526,35.606,8.529,28.51,16.737,14.1,33.4-20.47,89.74,16.582,96.75"
+                                        transform="translate(-0.001 0.334)" fill="#127e93" />
+                                    <path id="Trazado_252" data-name="Trazado 252"
+                                        d="M48.121.669a38.5,38.5,0,0,1-4.97,5.964c-.672,1.4,1.95,2.888,2.485,2.982,12.4,2.171,89.427-2.028,96.413,0,2.238.65,20.519,23.785,24.352,27.83,3.31.066,6.63-.085,9.939,0-4.721-5.6-27.322-35.764-31.309-36.776-4.7-1.191-92.093-.533-96.91,0"
+                                        transform="translate(3.248 0.002)" fill="#2a3131" />
+                                    <path id="Trazado_253" data-name="Trazado 253"
+                                        d="M193.9,34.149c-3.833-4.045-22.113-27.18-24.352-27.83-6.985-2.028-84.014,2.171-96.413,0-.535-.093-3.157-1.582-2.485-2.982C67.688,6.494,45.5,32.476,48.283,34.149c48.509.726,97.114-.972,145.613,0"
+                                        transform="translate(-24.247 3.297)" fill="#6dbfc2" />
+                                    <path id="Trazado_254" data-name="Trazado 254"
+                                        d="M99.714,44.875c-3.065,6.465-4.781,12.693-3.976,19.879,3.851,34.381,55.649,31.188,58.643,0a104.71,104.71,0,0,0-2.982-15.9c-16.076-19.793-32.667-21.658-51.685-3.976"
+                                        transform="translate(-79.158 32.329)" fill="#3b3d42" />
+                                    <path id="Trazado_255" data-name="Trazado 255"
+                                        d="M97.042,46.968c19.018-17.682,35.609-15.818,51.685,3.976-8.178-24.928-40.416-27.743-51.685-3.976"
+                                        transform="translate(-76.485 30.237)" fill="#4c6a75" />
+                                    <path id="Trazado_256" data-name="Trazado 256"
+                                        d="M9.523,64.253c2.415,33.333,54.019,34.591,57.649.994,4.769-44.131-60.736-43.592-57.649-.994"
+                                        transform="translate(179.01 31.837)" fill="#3b3d42" />
+                                    <path id="Trazado_259" data-name="Trazado 259"
+                                        d="M97.042,46.968c19.018-17.682,35.609-15.818,51.685,3.976-8.178-24.928-40.416-27.743-51.685-3.976"
+                                        transform="translate(95.543 30.237)" fill="#4c6a75" />
+                                </g>
+                            </svg>
+
+
+
+
+
+                        </div>
+
+                        <div class="suelos2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1964" height="12" viewBox="0 0 1964 12">
+                                <g id="Grupo_104" data-name="Grupo 104" transform="translate(0 -379)">
+                                    <g id="Rectángulo_307" data-name="Rectángulo 307" transform="translate(0 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_355" data-name="Rectángulo 355" transform="translate(1354 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_310" data-name="Rectángulo 310" transform="translate(369 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_352" data-name="Rectángulo 352" transform="translate(1723 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_315" data-name="Rectángulo 315" transform="translate(739 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="117" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="113" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_308" data-name="Rectángulo 308" transform="translate(123 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_354" data-name="Rectángulo 354" transform="translate(1477 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_311" data-name="Rectángulo 311" transform="translate(492 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_351" data-name="Rectángulo 351" transform="translate(1846 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_313" data-name="Rectángulo 313" transform="translate(862 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="117" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="113" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_343" data-name="Rectángulo 343" transform="translate(1108 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_309" data-name="Rectángulo 309" transform="translate(246 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_353" data-name="Rectángulo 353" transform="translate(1600 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_312" data-name="Rectángulo 312" transform="translate(615 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_314" data-name="Rectángulo 314" transform="translate(985 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_344" data-name="Rectángulo 344" transform="translate(1231 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                </g>
+                            </svg>
+
+                        </div>
+
+
+                        <div class="nube1">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="99.414" height="78.994"
+                                viewBox="0 0 99.414 78.994">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M97.389,42.926a21.5,21.5,0,0,1,4.6,13.2A21.773,21.773,0,0,1,80.238,77.876a21.519,21.519,0,0,1-7.71-1.424,30.665,30.665,0,0,1-40.5,0,21.519,21.519,0,0,1-7.71,1.424,21.747,21.747,0,0,1,0-43.494,21.545,21.545,0,0,1,3.066.218c.1-.142.226-.267.332-.4a17.878,17.878,0,0,1-.291-2.92A17.328,17.328,0,0,1,44.729,13.967c.469,0,.934.02,1.4.057a23.8,23.8,0,0,1,37.159,0c.461-.037.922-.057,1.388-.057A17.24,17.24,0,0,1,97.389,42.926Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" />
+                            </svg>
+
+
+                        </div>
+
+                        <div class="nube2">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26.691" height="15.014"
+                                viewBox="0 0 26.691 15.014">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M29.262,20.107A4.548,4.548,0,0,0,25.8,15.689a6.2,6.2,0,0,0-11.071-3.684,3.483,3.483,0,0,0-6.2,2.625,5.052,5.052,0,1,0-.9,10.024H24.726a4.546,4.546,0,0,0,4.536-4.547Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" opacity="0.47" />
+                            </svg>
+
+
+                        </div>
+                        <div class="nube3">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39.351" height="31.268"
+                                viewBox="0 0 39.351 31.268">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M40.1,20.071A8.51,8.51,0,0,1,41.922,25.3a8.619,8.619,0,0,1-8.608,8.608,8.518,8.518,0,0,1-3.052-.564,12.138,12.138,0,0,1-16.031,0,8.518,8.518,0,0,1-3.052.564,8.608,8.608,0,0,1,0-17.216,8.528,8.528,0,0,1,1.214.086c.04-.056.09-.106.131-.16a7.077,7.077,0,0,1-.115-1.156,6.859,6.859,0,0,1,6.85-6.852c.186,0,.37.008.552.022a9.42,9.42,0,0,1,14.709,0c.183-.014.365-.022.549-.022A6.824,6.824,0,0,1,40.1,20.071Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" opacity="0.69" />
+                            </svg>
+
+
+
+
+                        </div>
+                        <div class="nube4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39.351" height="31.268"
+                                viewBox="0 0 39.351 31.268">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M40.1,20.071A8.51,8.51,0,0,1,41.922,25.3a8.619,8.619,0,0,1-8.608,8.608,8.518,8.518,0,0,1-3.052-.564,12.138,12.138,0,0,1-16.031,0,8.518,8.518,0,0,1-3.052.564,8.608,8.608,0,0,1,0-17.216,8.528,8.528,0,0,1,1.214.086c.04-.056.09-.106.131-.16a7.077,7.077,0,0,1-.115-1.156,6.859,6.859,0,0,1,6.85-6.852c.186,0,.37.008.552.022a9.42,9.42,0,0,1,14.709,0c.183-.014.365-.022.549-.022A6.824,6.824,0,0,1,40.1,20.071Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" opacity="0.69" />
+                            </svg>
+
+
+
+
+                        </div>
+                        <div class="nube5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26.691" height="15.014"
+                                viewBox="0 0 26.691 15.014">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M29.262,20.107A4.548,4.548,0,0,0,25.8,15.689a6.2,6.2,0,0,0-11.071-3.684,3.483,3.483,0,0,0-6.2,2.625,5.052,5.052,0,1,0-.9,10.024H24.726a4.546,4.546,0,0,0,4.536-4.547Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" opacity="0.47" />
+                            </svg>
+
+
+
+
+
+                        </div>
+                        <div class="nube6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64.808" height="36.455"
+                                viewBox="0 0 64.808 36.455">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M67.379,35.053a11.042,11.042,0,0,0-8.417-10.726,15.055,15.055,0,0,0-26.88-8.945A8.456,8.456,0,0,0,17.02,21.757a12.267,12.267,0,1,0-2.188,24.338H56.366A11.037,11.037,0,0,0,67.379,35.053Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+                        </div>
+
+                        <div class="nube8">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="105.875" height="70.583"
+                                viewBox="0 0 105.875 70.583">
+                                <path id="Icon_ionic-md-cloud" data-name="Icon ionic-md-cloud"
+                                    d="M86.487,33.44a33.031,33.031,0,0,0-61.76-8.823,26.434,26.434,0,0,0,2.867,52.717H84.943A22.122,22.122,0,0,0,107,55.276,21.788,21.788,0,0,0,86.487,33.44Z"
+                                    transform="translate(-1.125 -6.75)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="nube9">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90.509" height="56.557"
+                                viewBox="0 0 90.509 56.557">
+                                <path id="Icon_ionic-ios-cloud" data-name="Icon ionic-ios-cloud"
+                                    d="M77.253,30.4A26.51,26.51,0,0,0,29.092,18.185a12.528,12.528,0,0,0-4.754-.937c-6.911,0-12.513,6.08-12.619,12.973A17.264,17.264,0,0,0,0,46.605c0,8.872,7.193,16.7,16.066,16.7H74.443c8.872,0,16.066-7.83,16.066-16.7A16.53,16.53,0,0,0,77.253,30.4Z"
+                                    transform="translate(0 -6.75)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+
+                </li>
+                <li class="carousel__slide">
+                    <div class="slider-content__container">
+
+
+                        <p class="title-slider1">Las rejillas Ecodeck son...</p>
+                        <h1 class="title-slider2">Tu acceso personal por obras</h1>
+                        <h4 class="title-slider3">100%,ecologico,permeable y resistente</h4>
+
+                        <div class="container-imagenes">
+
+                            <div class="montañas">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="1920" height="360" viewBox="0 0 1920 360">
+                                    <defs>
+                                        <clipPath id="clip-path">
+                                            <rect id="Rectángulo_364" data-name="Rectángulo 364" width="1920"
+                                                height="151" transform="translate(0 240)" fill="#fff" />
+                                        </clipPath>
+                                    </defs>
+                                    <g id="Grupo_129" data-name="Grupo 129" transform="translate(0 -240)">
+                                        <g id="Grupo_125" data-name="Grupo 125">
+                                            <g id="Enmascarar_grupo_16" data-name="Enmascarar grupo 16"
+                                                clip-path="url(#clip-path)">
+                                                <g id="Grupo_100" data-name="Grupo 100">
+                                                    <path id="Polígono_5" data-name="Polígono 5"
+                                                        d="M126.065,10.4a17,17,0,0,1,22.871,0l93.528,85.025c11.5,10.452,4.1,29.579-11.435,29.579H43.972c-15.539,0-22.933-19.127-11.435-29.579Z"
+                                                        transform="translate(654 254)" fill="#ebebeb" />
+                                                    <path id="Polígono_11" data-name="Polígono 11"
+                                                        d="M311.272,2.452a17,17,0,0,1,12.455,0l227.914,89.73C569.107,99.058,564.184,125,545.414,125H89.586c-18.77,0-23.693-25.942-6.228-32.818Z"
+                                                        transform="translate(1331 260)" fill="#ebebeb" />
+                                                    <path id="Polígono_10" data-name="Polígono 10"
+                                                        d="M126.065,10.4a17,17,0,0,1,22.871,0l93.528,85.025c11.5,10.452,4.1,29.579-11.435,29.579H43.972c-15.539,0-22.933-19.127-11.435-29.579Z"
+                                                        transform="translate(738 260)" fill="#ebebeb" />
+                                                    <path id="Polígono_3" data-name="Polígono 3"
+                                                        d="M267.25,6.83a27,27,0,0,1,25.5,0L465.173,99.2c24.753,13.261,15.331,50.8-12.75,50.8H107.577c-28.081,0-37.5-37.539-12.75-50.8Z"
+                                                        transform="translate(-24 240)" fill="#ebebeb" />
+                                                    <path id="Polígono_2" data-name="Polígono 2"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(-132 266)" fill="#e5e5e5" />
+                                                    <path id="Polígono_4" data-name="Polígono 4"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(164 255)" fill="#e5e5e5" />
+                                                    <path id="Polígono_8" data-name="Polígono 8"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(1197 255)" fill="#e5e5e5" />
+                                                    <path id="Polígono_6" data-name="Polígono 6"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(369 265)" fill="#e5e5e5" />
+                                                    <path id="Polígono_7" data-name="Polígono 7"
+                                                        d="M558.663,1.293a27,27,0,0,1,11.675,0L888.02,71.639C919.533,78.617,914.459,125,882.182,125H246.818c-32.277,0-37.351-46.383-5.837-53.361Z"
+                                                        transform="translate(487 266)" fill="#e5e5e5" />
+                                                    <path id="Polígono_9" data-name="Polígono 9"
+                                                        d="M558.663,1.293a27,27,0,0,1,11.675,0L888.02,71.639C919.533,78.617,914.459,125,882.182,125H246.818c-32.277,0-37.351-46.383-5.837-53.361Z"
+                                                        transform="translate(1355 266)" fill="#e5e5e5" />
+                                                </g>
+                                            </g>
+                                            <path id="Trazado_361" data-name="Trazado 361" d="M0,0H1919V225H0Z"
+                                                transform="translate(1 375)" fill="#e5e5e5" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <div class="coches3">
+                            <svg id="Grupo_97" data-name="Grupo 97" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="223.358" height="152.846"
+                                viewBox="0 0 223.358 152.846">
+                                <defs>
+                                    <clipPath id="clip-path">
+                                        <rect id="Rectángulo_362" data-name="Rectángulo 362" width="223.358"
+                                            height="152.846" fill="none" />
+                                    </clipPath>
+                                </defs>
+                                <g id="Grupo_96" data-name="Grupo 96" clip-path="url(#clip-path)">
+                                    <path id="Trazado_260" data-name="Trazado 260"
+                                        d="M113.854,59.146c3.917-.1,19.46-.3,21,0,1.726.339,5.934,3.746,7,5.25,3.979,5.614,2.233,24.515,2,32.25-21.645-11.594-47.349,5.583-45,30-2.462-1.734-.528-.1-1.75,0-10.425.842-26.018-.629-37.25,0,1.142-10.993-3.122-22.263-12.5-28.5,10-.108,20,.145,30,0,3.953-.058,7.541-.114,11.5-.5.175-.017,2.815,1.218,3.5.25,1.937-2.735-4.17-30.546,4.5-36.75,4.459-3.191,11.61-1.86,17-2"
+                                        fill="#eb6331" />
+                                    <path id="Trazado_261" data-name="Trazado 261"
+                                        d="M96.854,61.146c-8.67,6.2-2.563,34.015-4.5,36.75-.685.968-3.325-.267-3.5-.25-1.38-8.038,3.139-43.571-3.25-47-2.2-1.184-36.4-2.732-42.5,1.5C40.6,53.884,24.994,81.423,24.354,84.4c-.578,2.684.8,6.059-.5,8.75-7.621,1.2-13.782,6.222-18.5,12,.073-.127-.346-.874,1-2.75,3.025-4.215,11.2-8.092,11.5-9,.953-2.861-2.979-3.671,4.5-19.5,3.8-8.035,14.252-28.261,22.25-31.25,5.645-2.109,34.86-2.333,40.5-.5,7.374,2.4,12.252,11.562,11.75,19"
+                                        fill="#f6f1e6" />
+                                    <path id="Trazado_262" data-name="Trazado 262"
+                                        d="M88.854,97.646c-3.959.386-7.547.442-11.5.5l-.75-37.5c-4.28.4-25.283-.525-26.5,0-1.648.711-13.486,28.694-15.25,32.5a36.84,36.84,0,0,0-11,0c1.3-2.691-.078-6.066.5-8.75.64-2.973,16.244-30.512,18.75-32.25,6.1-4.232,40.3-2.684,42.5-1.5,6.389,3.429,1.87,38.962,3.25,47"
+                                        fill="#08323b" />
+                                    <path id="Trazado_263" data-name="Trazado 263"
+                                        d="M77.354,98.146c-10,.145-20-.108-30,0a33.234,33.234,0,0,0-12.5-5c1.764-3.806,13.6-31.789,15.25-32.5,1.217-.525,22.22.4,26.5,0Z"
+                                        fill="#48868b" />
+                                    <path id="Trazado_264" data-name="Trazado 264"
+                                        d="M217.354,69.646c2.34.728,5.809,5.586,6,8.25.183,2.557-7.21,48.285-8.5,50.5-3.421,5.874-9.373,2.7-13.5.25.87-12.239-7.551-39.812-1-50.25,1.269-2.021,6.3-5.209,8.5-6.25,1.092-.516,7.6-2.781,8.5-2.5"
+                                        fill="#eb6331" />
+                                    <path id="Trazado_265" data-name="Trazado 265"
+                                        d="M208.854,72.146c-2.2,1.041-7.231,4.229-8.5,6.25-6.551,10.438,1.87,38.011,1,50.25-20.194-11.969-23.137-43.9-4.5-58.5,3.686-1.413,8.138,1.641,12,2"
+                                        fill="#3f291b" />
+                                    <path id="Trazado_266" data-name="Trazado 266"
+                                        d="M217.354,69.646c-.9-.281-7.408,1.984-8.5,2.5-3.862-.359-8.314-3.413-12-2l-47.25-44c-1.815.071-12.564,29.217-14.75,33-1.54-.3-17.083-.1-21,0,4.243-9.027,23.126-52.081,25.5-55.25,4.372-5.837,7.724-4.286,12.75-.75,3.155,2.22,51.322,46.4,57,52,6.7,6.617,11.244,9.12,8.25,14.5"
+                                        fill="#f4b800" />
+                                    <path id="Trazado_267" data-name="Trazado 267"
+                                        d="M147.1,6.146c11.853,3.337-4.773,13.186-2.75,1.75Z" fill="#08323b" />
+                                    <path id="Trazado_268" data-name="Trazado 268"
+                                        d="M209.6,62.146c11.026,4.093-4.833,12.947-2.25,1.25Z" fill="#132b3d" />
+                                    <path id="Trazado_269" data-name="Trazado 269"
+                                        d="M34.854,93.146a33.234,33.234,0,0,1,12.5,5c9.378,6.237,13.642,17.507,12.5,28.5-.712,6.858-6.261,15.787-11.75,20-24.164,18.544-62.209-7.488-42.75-41.5,4.718-5.778,10.879-10.8,18.5-12a36.84,36.84,0,0,1,11,0"
+                                        fill="#16171e" />
+                                    <path id="Trazado_270" data-name="Trazado 270"
+                                        d="M26.6,110.646c21.289-3.957,19.368,27.644.5,24.5-12.171-2.028-12.207-22.324-.5-24.5"
+                                        fill="#f4b800" />
+                                    <path id="Trazado_271" data-name="Trazado 271"
+                                        d="M143.854,96.646c27.038,14.483,15.125,59.564-18.75,56-12.083-1.271-25.074-13.779-26.25-26-2.349-24.417,23.355-41.594,45-30"
+                                        fill="#16171e" />
+                                    <path id="Trazado_272" data-name="Trazado 272"
+                                        d="M127.1,110.646c18.053-2.185,17.747,24.1,2.5,25-15.654.922-17.571-23.176-2.5-25"
+                                        fill="#f4b800" />
+                                </g>
+                            </svg>
+
+
+
+
+                        </div>
+
+                        <div class="suelos1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1964" height="12" viewBox="0 0 1964 12">
+                                <g id="Grupo_104" data-name="Grupo 104" transform="translate(0 -379)">
+                                    <g id="Rectángulo_307" data-name="Rectángulo 307" transform="translate(0 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_355" data-name="Rectángulo 355" transform="translate(1354 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_310" data-name="Rectángulo 310" transform="translate(369 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_352" data-name="Rectángulo 352" transform="translate(1723 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_315" data-name="Rectángulo 315" transform="translate(739 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="117" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="113" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_308" data-name="Rectángulo 308" transform="translate(123 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_354" data-name="Rectángulo 354" transform="translate(1477 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_311" data-name="Rectángulo 311" transform="translate(492 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_351" data-name="Rectángulo 351" transform="translate(1846 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_313" data-name="Rectángulo 313" transform="translate(862 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="117" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="113" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_343" data-name="Rectángulo 343" transform="translate(1108 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_309" data-name="Rectángulo 309" transform="translate(246 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_353" data-name="Rectángulo 353" transform="translate(1600 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_312" data-name="Rectángulo 312" transform="translate(615 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_314" data-name="Rectángulo 314" transform="translate(985 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_344" data-name="Rectángulo 344" transform="translate(1231 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                </g>
+                            </svg>
+
+                        </div>
+
+
+                        <div class="nube1">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="99.414" height="78.994"
+                                viewBox="0 0 99.414 78.994">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M97.389,42.926a21.5,21.5,0,0,1,4.6,13.2A21.773,21.773,0,0,1,80.238,77.876a21.519,21.519,0,0,1-7.71-1.424,30.665,30.665,0,0,1-40.5,0,21.519,21.519,0,0,1-7.71,1.424,21.747,21.747,0,0,1,0-43.494,21.545,21.545,0,0,1,3.066.218c.1-.142.226-.267.332-.4a17.878,17.878,0,0,1-.291-2.92A17.328,17.328,0,0,1,44.729,13.967c.469,0,.934.02,1.4.057a23.8,23.8,0,0,1,37.159,0c.461-.037.922-.057,1.388-.057A17.24,17.24,0,0,1,97.389,42.926Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" />
+                            </svg>
+
+
+                        </div>
+
+                        <div class="nube2">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26.691" height="15.014"
+                                viewBox="0 0 26.691 15.014">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M29.262,20.107A4.548,4.548,0,0,0,25.8,15.689a6.2,6.2,0,0,0-11.071-3.684,3.483,3.483,0,0,0-6.2,2.625,5.052,5.052,0,1,0-.9,10.024H24.726a4.546,4.546,0,0,0,4.536-4.547Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" opacity="0.47" />
+                            </svg>
+
+
+                        </div>
+                        <div class="nube3">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39.351" height="31.268"
+                                viewBox="0 0 39.351 31.268">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M40.1,20.071A8.51,8.51,0,0,1,41.922,25.3a8.619,8.619,0,0,1-8.608,8.608,8.518,8.518,0,0,1-3.052-.564,12.138,12.138,0,0,1-16.031,0,8.518,8.518,0,0,1-3.052.564,8.608,8.608,0,0,1,0-17.216,8.528,8.528,0,0,1,1.214.086c.04-.056.09-.106.131-.16a7.077,7.077,0,0,1-.115-1.156,6.859,6.859,0,0,1,6.85-6.852c.186,0,.37.008.552.022a9.42,9.42,0,0,1,14.709,0c.183-.014.365-.022.549-.022A6.824,6.824,0,0,1,40.1,20.071Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" opacity="0.69" />
+                            </svg>
+
+
+
+
+                        </div>
+                        <div class="nube4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39.351" height="31.268"
+                                viewBox="0 0 39.351 31.268">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M40.1,20.071A8.51,8.51,0,0,1,41.922,25.3a8.619,8.619,0,0,1-8.608,8.608,8.518,8.518,0,0,1-3.052-.564,12.138,12.138,0,0,1-16.031,0,8.518,8.518,0,0,1-3.052.564,8.608,8.608,0,0,1,0-17.216,8.528,8.528,0,0,1,1.214.086c.04-.056.09-.106.131-.16a7.077,7.077,0,0,1-.115-1.156,6.859,6.859,0,0,1,6.85-6.852c.186,0,.37.008.552.022a9.42,9.42,0,0,1,14.709,0c.183-.014.365-.022.549-.022A6.824,6.824,0,0,1,40.1,20.071Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" opacity="0.69" />
+                            </svg>
+
+
+
+
+                        </div>
+                        <div class="nube5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26.691" height="15.014"
+                                viewBox="0 0 26.691 15.014">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M29.262,20.107A4.548,4.548,0,0,0,25.8,15.689a6.2,6.2,0,0,0-11.071-3.684,3.483,3.483,0,0,0-6.2,2.625,5.052,5.052,0,1,0-.9,10.024H24.726a4.546,4.546,0,0,0,4.536-4.547Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" opacity="0.47" />
+                            </svg>
+
+
+
+
+
+                        </div>
+                        <div class="nube6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64.808" height="36.455"
+                                viewBox="0 0 64.808 36.455">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M67.379,35.053a11.042,11.042,0,0,0-8.417-10.726,15.055,15.055,0,0,0-26.88-8.945A8.456,8.456,0,0,0,17.02,21.757a12.267,12.267,0,1,0-2.188,24.338H56.366A11.037,11.037,0,0,0,67.379,35.053Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+                        </div>
+
+                        <div class="nube8">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="105.875" height="70.583"
+                                viewBox="0 0 105.875 70.583">
+                                <path id="Icon_ionic-md-cloud" data-name="Icon ionic-md-cloud"
+                                    d="M86.487,33.44a33.031,33.031,0,0,0-61.76-8.823,26.434,26.434,0,0,0,2.867,52.717H84.943A22.122,22.122,0,0,0,107,55.276,21.788,21.788,0,0,0,86.487,33.44Z"
+                                    transform="translate(-1.125 -6.75)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="nube9">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90.509" height="56.557"
+                                viewBox="0 0 90.509 56.557">
+                                <path id="Icon_ionic-ios-cloud" data-name="Icon ionic-ios-cloud"
+                                    d="M77.253,30.4A26.51,26.51,0,0,0,29.092,18.185a12.528,12.528,0,0,0-4.754-.937c-6.911,0-12.513,6.08-12.619,12.973A17.264,17.264,0,0,0,0,46.605c0,8.872,7.193,16.7,16.066,16.7H74.443c8.872,0,16.066-7.83,16.066-16.7A16.53,16.53,0,0,0,77.253,30.4Z"
+                                    transform="translate(0 -6.75)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                </li>
+                <li class="carousel__slide">
+                    <div class="slider-content__container">
+
+
+                        <p class="title-slider1">Las rejillas Ecodeck son...</p>
+                        <h1 class="title-slider2">Tu zona de almacenamiento de exteriores</h1>
+                        <h4 class="title-slider3">100%,ecologico,permeable y resistente</h4>
+
+                        <div class="container-imagenes">
+
+                            <div class="montañas">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="1920" height="360" viewBox="0 0 1920 360">
+                                    <defs>
+                                        <clipPath id="clip-path">
+                                            <rect id="Rectángulo_364" data-name="Rectángulo 364" width="1920"
+                                                height="151" transform="translate(0 240)" fill="#fff" />
+                                        </clipPath>
+                                    </defs>
+                                    <g id="Grupo_129" data-name="Grupo 129" transform="translate(0 -240)">
+                                        <g id="Grupo_125" data-name="Grupo 125">
+                                            <g id="Enmascarar_grupo_16" data-name="Enmascarar grupo 16"
+                                                clip-path="url(#clip-path)">
+                                                <g id="Grupo_100" data-name="Grupo 100">
+                                                    <path id="Polígono_5" data-name="Polígono 5"
+                                                        d="M126.065,10.4a17,17,0,0,1,22.871,0l93.528,85.025c11.5,10.452,4.1,29.579-11.435,29.579H43.972c-15.539,0-22.933-19.127-11.435-29.579Z"
+                                                        transform="translate(654 254)" fill="#ebebeb" />
+                                                    <path id="Polígono_11" data-name="Polígono 11"
+                                                        d="M311.272,2.452a17,17,0,0,1,12.455,0l227.914,89.73C569.107,99.058,564.184,125,545.414,125H89.586c-18.77,0-23.693-25.942-6.228-32.818Z"
+                                                        transform="translate(1331 260)" fill="#ebebeb" />
+                                                    <path id="Polígono_10" data-name="Polígono 10"
+                                                        d="M126.065,10.4a17,17,0,0,1,22.871,0l93.528,85.025c11.5,10.452,4.1,29.579-11.435,29.579H43.972c-15.539,0-22.933-19.127-11.435-29.579Z"
+                                                        transform="translate(738 260)" fill="#ebebeb" />
+                                                    <path id="Polígono_3" data-name="Polígono 3"
+                                                        d="M267.25,6.83a27,27,0,0,1,25.5,0L465.173,99.2c24.753,13.261,15.331,50.8-12.75,50.8H107.577c-28.081,0-37.5-37.539-12.75-50.8Z"
+                                                        transform="translate(-24 240)" fill="#ebebeb" />
+                                                    <path id="Polígono_2" data-name="Polígono 2"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(-132 266)" fill="#e5e5e5" />
+                                                    <path id="Polígono_4" data-name="Polígono 4"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(164 255)" fill="#e5e5e5" />
+                                                    <path id="Polígono_8" data-name="Polígono 8"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(1197 255)" fill="#e5e5e5" />
+                                                    <path id="Polígono_6" data-name="Polígono 6"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(369 265)" fill="#e5e5e5" />
+                                                    <path id="Polígono_7" data-name="Polígono 7"
+                                                        d="M558.663,1.293a27,27,0,0,1,11.675,0L888.02,71.639C919.533,78.617,914.459,125,882.182,125H246.818c-32.277,0-37.351-46.383-5.837-53.361Z"
+                                                        transform="translate(487 266)" fill="#e5e5e5" />
+                                                    <path id="Polígono_9" data-name="Polígono 9"
+                                                        d="M558.663,1.293a27,27,0,0,1,11.675,0L888.02,71.639C919.533,78.617,914.459,125,882.182,125H246.818c-32.277,0-37.351-46.383-5.837-53.361Z"
+                                                        transform="translate(1355 266)" fill="#e5e5e5" />
+                                                </g>
+                                            </g>
+                                            <path id="Trazado_361" data-name="Trazado 361" d="M0,0H1919V225H0Z"
+                                                transform="translate(1 375)" fill="#e5e5e5" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <div class="coches3">
+                            <svg id="Grupo_97" data-name="Grupo 97" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="223.358" height="152.846"
+                                viewBox="0 0 223.358 152.846">
+                                <defs>
+                                    <clipPath id="clip-path">
+                                        <rect id="Rectángulo_362" data-name="Rectángulo 362" width="223.358"
+                                            height="152.846" fill="none" />
+                                    </clipPath>
+                                </defs>
+                                <g id="Grupo_96" data-name="Grupo 96" clip-path="url(#clip-path)">
+                                    <path id="Trazado_260" data-name="Trazado 260"
+                                        d="M113.854,59.146c3.917-.1,19.46-.3,21,0,1.726.339,5.934,3.746,7,5.25,3.979,5.614,2.233,24.515,2,32.25-21.645-11.594-47.349,5.583-45,30-2.462-1.734-.528-.1-1.75,0-10.425.842-26.018-.629-37.25,0,1.142-10.993-3.122-22.263-12.5-28.5,10-.108,20,.145,30,0,3.953-.058,7.541-.114,11.5-.5.175-.017,2.815,1.218,3.5.25,1.937-2.735-4.17-30.546,4.5-36.75,4.459-3.191,11.61-1.86,17-2"
+                                        fill="#eb6331" />
+                                    <path id="Trazado_261" data-name="Trazado 261"
+                                        d="M96.854,61.146c-8.67,6.2-2.563,34.015-4.5,36.75-.685.968-3.325-.267-3.5-.25-1.38-8.038,3.139-43.571-3.25-47-2.2-1.184-36.4-2.732-42.5,1.5C40.6,53.884,24.994,81.423,24.354,84.4c-.578,2.684.8,6.059-.5,8.75-7.621,1.2-13.782,6.222-18.5,12,.073-.127-.346-.874,1-2.75,3.025-4.215,11.2-8.092,11.5-9,.953-2.861-2.979-3.671,4.5-19.5,3.8-8.035,14.252-28.261,22.25-31.25,5.645-2.109,34.86-2.333,40.5-.5,7.374,2.4,12.252,11.562,11.75,19"
+                                        fill="#f6f1e6" />
+                                    <path id="Trazado_262" data-name="Trazado 262"
+                                        d="M88.854,97.646c-3.959.386-7.547.442-11.5.5l-.75-37.5c-4.28.4-25.283-.525-26.5,0-1.648.711-13.486,28.694-15.25,32.5a36.84,36.84,0,0,0-11,0c1.3-2.691-.078-6.066.5-8.75.64-2.973,16.244-30.512,18.75-32.25,6.1-4.232,40.3-2.684,42.5-1.5,6.389,3.429,1.87,38.962,3.25,47"
+                                        fill="#08323b" />
+                                    <path id="Trazado_263" data-name="Trazado 263"
+                                        d="M77.354,98.146c-10,.145-20-.108-30,0a33.234,33.234,0,0,0-12.5-5c1.764-3.806,13.6-31.789,15.25-32.5,1.217-.525,22.22.4,26.5,0Z"
+                                        fill="#48868b" />
+                                    <path id="Trazado_264" data-name="Trazado 264"
+                                        d="M217.354,69.646c2.34.728,5.809,5.586,6,8.25.183,2.557-7.21,48.285-8.5,50.5-3.421,5.874-9.373,2.7-13.5.25.87-12.239-7.551-39.812-1-50.25,1.269-2.021,6.3-5.209,8.5-6.25,1.092-.516,7.6-2.781,8.5-2.5"
+                                        fill="#eb6331" />
+                                    <path id="Trazado_265" data-name="Trazado 265"
+                                        d="M208.854,72.146c-2.2,1.041-7.231,4.229-8.5,6.25-6.551,10.438,1.87,38.011,1,50.25-20.194-11.969-23.137-43.9-4.5-58.5,3.686-1.413,8.138,1.641,12,2"
+                                        fill="#3f291b" />
+                                    <path id="Trazado_266" data-name="Trazado 266"
+                                        d="M217.354,69.646c-.9-.281-7.408,1.984-8.5,2.5-3.862-.359-8.314-3.413-12-2l-47.25-44c-1.815.071-12.564,29.217-14.75,33-1.54-.3-17.083-.1-21,0,4.243-9.027,23.126-52.081,25.5-55.25,4.372-5.837,7.724-4.286,12.75-.75,3.155,2.22,51.322,46.4,57,52,6.7,6.617,11.244,9.12,8.25,14.5"
+                                        fill="#f4b800" />
+                                    <path id="Trazado_267" data-name="Trazado 267"
+                                        d="M147.1,6.146c11.853,3.337-4.773,13.186-2.75,1.75Z" fill="#08323b" />
+                                    <path id="Trazado_268" data-name="Trazado 268"
+                                        d="M209.6,62.146c11.026,4.093-4.833,12.947-2.25,1.25Z" fill="#132b3d" />
+                                    <path id="Trazado_269" data-name="Trazado 269"
+                                        d="M34.854,93.146a33.234,33.234,0,0,1,12.5,5c9.378,6.237,13.642,17.507,12.5,28.5-.712,6.858-6.261,15.787-11.75,20-24.164,18.544-62.209-7.488-42.75-41.5,4.718-5.778,10.879-10.8,18.5-12a36.84,36.84,0,0,1,11,0"
+                                        fill="#16171e" />
+                                    <path id="Trazado_270" data-name="Trazado 270"
+                                        d="M26.6,110.646c21.289-3.957,19.368,27.644.5,24.5-12.171-2.028-12.207-22.324-.5-24.5"
+                                        fill="#f4b800" />
+                                    <path id="Trazado_271" data-name="Trazado 271"
+                                        d="M143.854,96.646c27.038,14.483,15.125,59.564-18.75,56-12.083-1.271-25.074-13.779-26.25-26-2.349-24.417,23.355-41.594,45-30"
+                                        fill="#16171e" />
+                                    <path id="Trazado_272" data-name="Trazado 272"
+                                        d="M127.1,110.646c18.053-2.185,17.747,24.1,2.5,25-15.654.922-17.571-23.176-2.5-25"
+                                        fill="#f4b800" />
+                                </g>
+                            </svg>
+
+
+
+
+                        </div>
+
+                        <div class="suelos1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1964" height="12" viewBox="0 0 1964 12">
+                                <g id="Grupo_104" data-name="Grupo 104" transform="translate(0 -379)">
+                                    <g id="Rectángulo_307" data-name="Rectángulo 307" transform="translate(0 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_355" data-name="Rectángulo 355" transform="translate(1354 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_310" data-name="Rectángulo 310" transform="translate(369 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_352" data-name="Rectángulo 352" transform="translate(1723 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_315" data-name="Rectángulo 315" transform="translate(739 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="117" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="113" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_308" data-name="Rectángulo 308" transform="translate(123 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_354" data-name="Rectángulo 354" transform="translate(1477 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_311" data-name="Rectángulo 311" transform="translate(492 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_351" data-name="Rectángulo 351" transform="translate(1846 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_313" data-name="Rectángulo 313" transform="translate(862 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="117" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="113" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_343" data-name="Rectángulo 343" transform="translate(1108 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_309" data-name="Rectángulo 309" transform="translate(246 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_353" data-name="Rectángulo 353" transform="translate(1600 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_312" data-name="Rectángulo 312" transform="translate(615 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_314" data-name="Rectángulo 314" transform="translate(985 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                    <g id="Rectángulo_344" data-name="Rectángulo 344" transform="translate(1231 379)"
+                                        fill="#707070" stroke="#707070" stroke-width="4">
+                                        <rect width="118" height="12" stroke="none" />
+                                        <rect x="2" y="2" width="114" height="8" fill="none" />
+                                    </g>
+                                </g>
+                            </svg>
+
+                        </div>
+
+
+                        <div class="nube1">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="99.414" height="78.994"
+                                viewBox="0 0 99.414 78.994">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M97.389,42.926a21.5,21.5,0,0,1,4.6,13.2A21.773,21.773,0,0,1,80.238,77.876a21.519,21.519,0,0,1-7.71-1.424,30.665,30.665,0,0,1-40.5,0,21.519,21.519,0,0,1-7.71,1.424,21.747,21.747,0,0,1,0-43.494,21.545,21.545,0,0,1,3.066.218c.1-.142.226-.267.332-.4a17.878,17.878,0,0,1-.291-2.92A17.328,17.328,0,0,1,44.729,13.967c.469,0,.934.02,1.4.057a23.8,23.8,0,0,1,37.159,0c.461-.037.922-.057,1.388-.057A17.24,17.24,0,0,1,97.389,42.926Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" />
+                            </svg>
+
+
+                        </div>
+
+                        <div class="nube2">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26.691" height="15.014"
+                                viewBox="0 0 26.691 15.014">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M29.262,20.107A4.548,4.548,0,0,0,25.8,15.689a6.2,6.2,0,0,0-11.071-3.684,3.483,3.483,0,0,0-6.2,2.625,5.052,5.052,0,1,0-.9,10.024H24.726a4.546,4.546,0,0,0,4.536-4.547Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" opacity="0.47" />
+                            </svg>
+
+
+                        </div>
+                        <div class="nube3">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39.351" height="31.268"
+                                viewBox="0 0 39.351 31.268">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M40.1,20.071A8.51,8.51,0,0,1,41.922,25.3a8.619,8.619,0,0,1-8.608,8.608,8.518,8.518,0,0,1-3.052-.564,12.138,12.138,0,0,1-16.031,0,8.518,8.518,0,0,1-3.052.564,8.608,8.608,0,0,1,0-17.216,8.528,8.528,0,0,1,1.214.086c.04-.056.09-.106.131-.16a7.077,7.077,0,0,1-.115-1.156,6.859,6.859,0,0,1,6.85-6.852c.186,0,.37.008.552.022a9.42,9.42,0,0,1,14.709,0c.183-.014.365-.022.549-.022A6.824,6.824,0,0,1,40.1,20.071Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" opacity="0.69" />
+                            </svg>
+
+
+
+
+                        </div>
+                        <div class="nube4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39.351" height="31.268"
+                                viewBox="0 0 39.351 31.268">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M40.1,20.071A8.51,8.51,0,0,1,41.922,25.3a8.619,8.619,0,0,1-8.608,8.608,8.518,8.518,0,0,1-3.052-.564,12.138,12.138,0,0,1-16.031,0,8.518,8.518,0,0,1-3.052.564,8.608,8.608,0,0,1,0-17.216,8.528,8.528,0,0,1,1.214.086c.04-.056.09-.106.131-.16a7.077,7.077,0,0,1-.115-1.156,6.859,6.859,0,0,1,6.85-6.852c.186,0,.37.008.552.022a9.42,9.42,0,0,1,14.709,0c.183-.014.365-.022.549-.022A6.824,6.824,0,0,1,40.1,20.071Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" opacity="0.69" />
+                            </svg>
+
+
+
+
+                        </div>
+                        <div class="nube5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26.691" height="15.014"
+                                viewBox="0 0 26.691 15.014">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M29.262,20.107A4.548,4.548,0,0,0,25.8,15.689a6.2,6.2,0,0,0-11.071-3.684,3.483,3.483,0,0,0-6.2,2.625,5.052,5.052,0,1,0-.9,10.024H24.726a4.546,4.546,0,0,0,4.536-4.547Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" opacity="0.47" />
+                            </svg>
+
+
+
+
+
+                        </div>
+                        <div class="nube6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64.808" height="36.455"
+                                viewBox="0 0 64.808 36.455">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M67.379,35.053a11.042,11.042,0,0,0-8.417-10.726,15.055,15.055,0,0,0-26.88-8.945A8.456,8.456,0,0,0,17.02,21.757a12.267,12.267,0,1,0-2.188,24.338H56.366A11.037,11.037,0,0,0,67.379,35.053Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+                        </div>
+
+                        <div class="nube8">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="105.875" height="70.583"
+                                viewBox="0 0 105.875 70.583">
+                                <path id="Icon_ionic-md-cloud" data-name="Icon ionic-md-cloud"
+                                    d="M86.487,33.44a33.031,33.031,0,0,0-61.76-8.823,26.434,26.434,0,0,0,2.867,52.717H84.943A22.122,22.122,0,0,0,107,55.276,21.788,21.788,0,0,0,86.487,33.44Z"
+                                    transform="translate(-1.125 -6.75)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="nube9">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90.509" height="56.557"
+                                viewBox="0 0 90.509 56.557">
+                                <path id="Icon_ionic-ios-cloud" data-name="Icon ionic-ios-cloud"
+                                    d="M77.253,30.4A26.51,26.51,0,0,0,29.092,18.185a12.528,12.528,0,0,0-4.754-.937c-6.911,0-12.513,6.08-12.619,12.973A17.264,17.264,0,0,0,0,46.605c0,8.872,7.193,16.7,16.066,16.7H74.443c8.872,0,16.066-7.83,16.066-16.7A16.53,16.53,0,0,0,77.253,30.4Z"
+                                    transform="translate(0 -6.75)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                </li>
+
+
+                <!-- penultimo slider -->
+
+
+
+                <li class="carousel__slide">
+                    <div class="slider-content__container">
+
+
+                        <p class="title-slider1">Las rejillas Ecodeck son...</p>
+                        <h1 class="title-slider2">Tu potección contra inundaciones</h1>
+                        <h4 class="title-slider3">100%,ecologico,permeable y resistente</h4>
+
+                        <div class="container-imagenes">
+
+                            <div class="montañas">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="1920" height="360" viewBox="0 0 1920 360">
+                                    <defs>
+                                        <clipPath id="clip-path">
+                                            <rect id="Rectángulo_364" data-name="Rectángulo 364" width="1920"
+                                                height="151" transform="translate(0 240)" fill="#fff" />
+                                        </clipPath>
+                                    </defs>
+                                    <g id="Grupo_129" data-name="Grupo 129" transform="translate(0 -240)">
+                                        <g id="Grupo_125" data-name="Grupo 125">
+                                            <g id="Enmascarar_grupo_16" data-name="Enmascarar grupo 16"
+                                                clip-path="url(#clip-path)">
+                                                <g id="Grupo_100" data-name="Grupo 100">
+                                                    <path id="Polígono_5" data-name="Polígono 5"
+                                                        d="M126.065,10.4a17,17,0,0,1,22.871,0l93.528,85.025c11.5,10.452,4.1,29.579-11.435,29.579H43.972c-15.539,0-22.933-19.127-11.435-29.579Z"
+                                                        transform="translate(654 254)" fill="#ebebeb" />
+                                                    <path id="Polígono_11" data-name="Polígono 11"
+                                                        d="M311.272,2.452a17,17,0,0,1,12.455,0l227.914,89.73C569.107,99.058,564.184,125,545.414,125H89.586c-18.77,0-23.693-25.942-6.228-32.818Z"
+                                                        transform="translate(1331 260)" fill="#ebebeb" />
+                                                    <path id="Polígono_10" data-name="Polígono 10"
+                                                        d="M126.065,10.4a17,17,0,0,1,22.871,0l93.528,85.025c11.5,10.452,4.1,29.579-11.435,29.579H43.972c-15.539,0-22.933-19.127-11.435-29.579Z"
+                                                        transform="translate(738 260)" fill="#ebebeb" />
+                                                    <path id="Polígono_3" data-name="Polígono 3"
+                                                        d="M267.25,6.83a27,27,0,0,1,25.5,0L465.173,99.2c24.753,13.261,15.331,50.8-12.75,50.8H107.577c-28.081,0-37.5-37.539-12.75-50.8Z"
+                                                        transform="translate(-24 240)" fill="#ebebeb" />
+                                                    <path id="Polígono_2" data-name="Polígono 2"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(-132 266)" fill="#e5e5e5" />
+                                                    <path id="Polígono_4" data-name="Polígono 4"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(164 255)" fill="#e5e5e5" />
+                                                    <path id="Polígono_8" data-name="Polígono 8"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(1197 255)" fill="#e5e5e5" />
+                                                    <path id="Polígono_6" data-name="Polígono 6"
+                                                        d="M268.993,4.914a27,27,0,0,1,22.013,0L444.293,73.345C470.9,85.223,462.424,125,433.287,125H126.713C97.576,125,89.1,85.223,115.707,73.345Z"
+                                                        transform="translate(369 265)" fill="#e5e5e5" />
+                                                    <path id="Polígono_7" data-name="Polígono 7"
+                                                        d="M558.663,1.293a27,27,0,0,1,11.675,0L888.02,71.639C919.533,78.617,914.459,125,882.182,125H246.818c-32.277,0-37.351-46.383-5.837-53.361Z"
+                                                        transform="translate(487 266)" fill="#e5e5e5" />
+                                                    <path id="Polígono_9" data-name="Polígono 9"
+                                                        d="M558.663,1.293a27,27,0,0,1,11.675,0L888.02,71.639C919.533,78.617,914.459,125,882.182,125H246.818c-32.277,0-37.351-46.383-5.837-53.361Z"
+                                                        transform="translate(1355 266)" fill="#e5e5e5" />
+                                                </g>
+                                            </g>
+                                            <path id="Trazado_361" data-name="Trazado 361" d="M0,0H1919V225H0Z"
+                                                transform="translate(1 375)" fill="#e5e5e5" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <div class="coches">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="110.265" height="115.785" viewBox="0 0 110.265 115.785">
+                                <defs>
+                                    <clipPath id="clip-path">
+                                        <rect id="Rectángulo_367" data-name="Rectángulo 367" width="110.265"
+                                            height="115.785" fill="none" />
+                                    </clipPath>
+                                </defs>
+                                <g id="Grupo_105" data-name="Grupo 105" clip-path="url(#clip-path)">
+                                    <path id="Trazado_277" data-name="Trazado 277"
+                                        d="M91.946,105.216c-4.438,5.062-3.511,1.956-7.877,1.891-14.06-.21-15.611,4.331-16.07-10.083.045-27.936-.185-55.88,0-83.816l5.042-2.836c.611-6.853-4.531-.354-4.411-8.508a11.563,11.563,0,0,0,0-1.26C76.863.884,89.86-1.6,91.946,9.742c.863,4.695.819,90.772,0,95.474"
+                                        transform="translate(17.687 0.143)" fill="#2a688c" />
+                                    <path id="Trazado_278" data-name="Trazado 278"
+                                        d="M22.668.093c-.925,10.536,1.212,12.847,1.26,13.549,1.667,24.475-.247,50.693-.63,75.308-2.681,1.02.78,17.052-.945,18.276-.836.592-15.961-.439-20.481.63-.044-.12-1.225-2-1.26-2.206C-.2,100.93-.2,14.581.611,9.861,2.628-1.849,14.085.4,22.668.093"
+                                        transform="translate(0 0.024)" fill="#2a688c" />
+                                    <path id="Trazado_279" data-name="Trazado 279"
+                                        d="M48.094.723a7.044,7.044,0,0,0,0,6.3c0,1.863.01,3.819,0,5.672-.13,23.916.756,77.469,0,92.638-.387,7.711,2.059,10.865-6.932,9.138-.074-2.831.1-5.678,0-8.508-.648-18.206-1.175-75.4-.63-93.268.067-2.217-.082-4.549,0-5.672.1-1.374-.233-4.235,0-4.726.89-1.893,4.208.14,3.781-2.206,3.156.021,3.59.626,3.781.63"
+                                        transform="translate(10.495 0.024)" fill="#33434f" />
+                                    <path id="Trazado_280" data-name="Trazado 280"
+                                        d="M46.193,84.223c.1,2.83-.074,5.677,0,8.508,8.992,1.727,6.545-1.427,6.932-9.138H77.071c-.136,3.35.1,6.729,0,10.083-17.424.442-38.684.474-56.086,0V86.744c0-1.05,0-2.1,0-3.151l25.208.63"
+                                        transform="translate(5.464 21.766)" fill="#365b72" />
+                                    <path id="Trazado_281" data-name="Trazado 281"
+                                        d="M23.074.1c-1.093,1.9-.551,4.2-.63,6.3-.794,20.98-.962,42.031-.63,63.019.054,3.419.517,6.737.63,10.083.005.164-.852-.968-.63,2.521.014.209-.016.421,0,.63.163,2.11-.553,5.19.63,6.932,2.2,3.243,25.892-.984,22.057,3.466-4.672,2.551-20.419-.271-21.742.315-1.57.7-.939,9.949-.945,11.974,0,1.05,0,2.1,0,3.151-3.53-3.025-4,7.02,0,4.411v2.521c-1.049-.029-2.1.035-3.151,0,.1-8.82-.139-17.649,0-26.468.383-24.615,2.3-50.833.63-75.308-.048-.7-2.184-3.014-1.26-13.549C19.709.037,21.4.14,23.074.1"
+                                        transform="translate(4.635 0.02)" fill="#7e5b44" />
+                                    <path id="Trazado_282" data-name="Trazado 282"
+                                        d="M69.4.6a11.565,11.565,0,0,1,0,1.26c-1.24,3.382-.606,7.788-.63,11.343-.185,27.935.045,55.879,0,83.816-.01,6.045.521,12.294-.63,18.276-.839.026-1.681-.021-2.521,0,.1-3.354-.136-6.733,0-10.083.169-4.148-.059-7.914,0-11.974.015-1.064-.011-2.12,0-3.151.033-2.821.629-5.858.63-8.823,0-3.208-.63-2.391-.63-2.521-.052-22.129.221-44.033-.63-66.17-.073-1.886.052-3.785,0-5.672V.6c1.468.043,2.944-.05,4.411,0"
+                                        transform="translate(16.916 0.151)" fill="#8a5732" />
+                                    <path id="Trazado_283" data-name="Trazado 283"
+                                        d="M49.227.117c.427,2.346-2.891.313-3.781,2.206-.233.492.1,3.353,0,4.726L21.5,6.419c.079-2.1-.463-4.4.63-6.3,9-.229,18.092-.06,27.1,0"
+                                        transform="translate(5.581 0)" fill="#2a688c" />
+                                    <path id="Trazado_284" data-name="Trazado 284"
+                                        d="M92.061,85.285C89.907,97.656,76.443,95.08,67.484,95.369c1.151-5.982.62-12.231.63-18.276.459,14.414,2.01,9.873,16.07,10.083,4.366.066,3.44,3.171,7.877-1.891"
+                                        transform="translate(17.572 20.073)" fill="#2a688c" />
+                                    <path id="Trazado_285" data-name="Trazado 285"
+                                        d="M22.912,70.593c-.139,8.819.1,17.648,0,26.468C14.642,96.78,5.095,99.322,1.485,89.5c4.52-1.069,19.646-.038,20.481-.63,1.725-1.224-1.736-17.256.945-18.276"
+                                        transform="translate(0.387 18.381)" fill="#2a688c" />
+                                    <path id="Trazado_286" data-name="Trazado 286"
+                                        d="M69.958.609v6.3H46.641a7.049,7.049,0,0,1,0-6.3C54.405.746,62.2.381,69.958.609"
+                                        transform="translate(11.947 0.138)" fill="#2a688c" />
+                                    <path id="Trazado_287" data-name="Trazado 287"
+                                        d="M68.013,12.936c.024-3.556-.61-7.962.63-11.343-.12,8.153,5.023,1.655,4.411,8.508Z"
+                                        transform="translate(17.673 0.415)" fill="#1a4a65" />
+                                    <path id="Trazado_288" data-name="Trazado 288"
+                                        d="M69.8,10.093c.851,22.137.579,44.042.63,66.17-29.356-1.126-27.883,4.13.63,2.521,0,2.964-.6,6-.63,8.823-27.841-.416-29.2,4.5,0,3.151-.059,4.06.169,7.826,0,11.974H46.487c.757-15.169-.129-68.722,0-92.638Z"
+                                        transform="translate(12.101 2.628)" fill="#2a688c" />
+                                    <path id="Trazado_289" data-name="Trazado 289"
+                                        d="M45.587,10.093c-.544,17.866-.019,75.062.63,93.268l-25.208-.63c.008-2.024-.625-11.277.945-11.974,1.322-.586,17.069,2.236,21.742-.315,3.835-4.45-19.855-.223-22.057-3.466,11.375,2.265,12.237-9.632-.63-6.932-.016-.209.014-.421,0-.63,31.292,1.076,32.612-3.6.63-2.521-.113-3.346-.576-6.664-.63-10.083l.63-56.4,23.947-.315"
+                                        transform="translate(5.439 2.628)" fill="#2a688c" />
+                                    <path id="Trazado_290" data-name="Trazado 290"
+                                        d="M45.6,5.723c-.082,1.123.067,3.455,0,5.672l-23.947.315-.63,56.4c-.331-20.988-.163-42.039.63-63.019l23.947.63"
+                                        transform="translate(5.431 1.326)" fill="#365b72" />
+                                    <path id="Trazado_291" data-name="Trazado 291"
+                                        d="M69.8,5.593c.052,1.887-.073,3.786,0,5.672H46.484c.01-1.853,0-3.809,0-5.672Z"
+                                        transform="translate(12.104 1.456)" fill="#365b72" />
+                                    <path id="Trazado_292" data-name="Trazado 292"
+                                        d="M21.569,86.212v4.411c-4,2.609-3.53-7.436,0-4.411"
+                                        transform="translate(4.881 22.298)" fill="#8a5732" />
+                                    <path id="Trazado_293" data-name="Trazado 293"
+                                        d="M21.629,72.608c-1.184-1.742-.468-4.822-.63-6.932,12.867-2.7,12.005,9.2.63,6.932"
+                                        transform="translate(5.45 16.996)" fill="#2a688c" />
+                                    <path id="Trazado_294" data-name="Trazado 294"
+                                        d="M20.993,65.647c-.222-3.489.635-2.357.63-2.521,31.982-1.079,30.661,3.6-.63,2.521"
+                                        transform="translate(5.457 16.394)" fill="#c8844a" />
+                                    <path id="Trazado_295" data-name="Trazado 295"
+                                        d="M69.9,71.6c-.011,1.031.015,2.087,0,3.151-29.2,1.346-27.841-3.567,0-3.151"
+                                        transform="translate(12.631 18.636)" fill="#af6d3d" />
+                                    <path id="Trazado_296" data-name="Trazado 296"
+                                        d="M69.9,62.626c0,.13.631-.687.63,2.521-28.514,1.61-29.986-3.646-.63-2.521"
+                                        transform="translate(12.631 16.265)" fill="#be8773" />
+                                </g>
+                            </svg>
+
+                        </div>
+
+                        <div class="sueloslastSlice">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1922" height="76.514" viewBox="0 0 1922 76.514">
+                                <path id="Trazado_351" data-name="Trazado 351" d="M0-46.514C87.154,43.7,1549.977-52.382,1922,0V30H0S0-8.089,0-46.514Z" transform="translate(0 46.514)" fill="#1363a9"/>
+                              </svg>
+                            
+                              
+                        </div>
+                        <div class="sueloslastSlice2">
+                           
+                              <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="76.514" viewBox="0 0 1920 76.514">
+                                <path id="Trazado_352" data-name="Trazado 352" d="M1920-46.514C1832.937,43.7,371.636-52.382,0,0V30H1920Z" transform="translate(0 46.514)" fill="#3d85c4"/>
+                              </svg>
+                              
+                        </div>
+
+
+                        <div class="nube1">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="99.414" height="78.994"
+                                viewBox="0 0 99.414 78.994">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M97.389,42.926a21.5,21.5,0,0,1,4.6,13.2A21.773,21.773,0,0,1,80.238,77.876a21.519,21.519,0,0,1-7.71-1.424,30.665,30.665,0,0,1-40.5,0,21.519,21.519,0,0,1-7.71,1.424,21.747,21.747,0,0,1,0-43.494,21.545,21.545,0,0,1,3.066.218c.1-.142.226-.267.332-.4a17.878,17.878,0,0,1-.291-2.92A17.328,17.328,0,0,1,44.729,13.967c.469,0,.934.02,1.4.057a23.8,23.8,0,0,1,37.159,0c.461-.037.922-.057,1.388-.057A17.24,17.24,0,0,1,97.389,42.926Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" />
+                            </svg>
+
+
+                        </div>
+
+                        <div class="nube2">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26.691" height="15.014"
+                                viewBox="0 0 26.691 15.014">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M29.262,20.107A4.548,4.548,0,0,0,25.8,15.689a6.2,6.2,0,0,0-11.071-3.684,3.483,3.483,0,0,0-6.2,2.625,5.052,5.052,0,1,0-.9,10.024H24.726a4.546,4.546,0,0,0,4.536-4.547Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" opacity="0.47" />
+                            </svg>
+
+
+                        </div>
+                        <div class="nube3">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39.351" height="31.268"
+                                viewBox="0 0 39.351 31.268">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M40.1,20.071A8.51,8.51,0,0,1,41.922,25.3a8.619,8.619,0,0,1-8.608,8.608,8.518,8.518,0,0,1-3.052-.564,12.138,12.138,0,0,1-16.031,0,8.518,8.518,0,0,1-3.052.564,8.608,8.608,0,0,1,0-17.216,8.528,8.528,0,0,1,1.214.086c.04-.056.09-.106.131-.16a7.077,7.077,0,0,1-.115-1.156,6.859,6.859,0,0,1,6.85-6.852c.186,0,.37.008.552.022a9.42,9.42,0,0,1,14.709,0c.183-.014.365-.022.549-.022A6.824,6.824,0,0,1,40.1,20.071Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" opacity="0.69" />
+                            </svg>
+
+
+
+
+                        </div>
+                        <div class="nube4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39.351" height="31.268"
+                                viewBox="0 0 39.351 31.268">
+                                <path id="Icon_metro-cloudy4" data-name="Icon metro-cloudy4"
+                                    d="M40.1,20.071A8.51,8.51,0,0,1,41.922,25.3a8.619,8.619,0,0,1-8.608,8.608,8.518,8.518,0,0,1-3.052-.564,12.138,12.138,0,0,1-16.031,0,8.518,8.518,0,0,1-3.052.564,8.608,8.608,0,0,1,0-17.216,8.528,8.528,0,0,1,1.214.086c.04-.056.09-.106.131-.16a7.077,7.077,0,0,1-.115-1.156,6.859,6.859,0,0,1,6.85-6.852c.186,0,.37.008.552.022a9.42,9.42,0,0,1,14.709,0c.183-.014.365-.022.549-.022A6.824,6.824,0,0,1,40.1,20.071Z"
+                                    transform="translate(-2.571 -5.096)" fill="#fff" opacity="0.69" />
+                            </svg>
+
+
+
+
+                        </div>
+                        <div class="nube5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26.691" height="15.014"
+                                viewBox="0 0 26.691 15.014">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M29.262,20.107A4.548,4.548,0,0,0,25.8,15.689a6.2,6.2,0,0,0-11.071-3.684,3.483,3.483,0,0,0-6.2,2.625,5.052,5.052,0,1,0-.9,10.024H24.726a4.546,4.546,0,0,0,4.536-4.547Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" opacity="0.47" />
+                            </svg>
+
+
+
+
+
+                        </div>
+                        <div class="nube6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64.808" height="36.455"
+                                viewBox="0 0 64.808 36.455">
+                                <path id="Icon_metro-cloud" data-name="Icon metro-cloud"
+                                    d="M67.379,35.053a11.042,11.042,0,0,0-8.417-10.726,15.055,15.055,0,0,0-26.88-8.945A8.456,8.456,0,0,0,17.02,21.757a12.267,12.267,0,1,0-2.188,24.338H56.366A11.037,11.037,0,0,0,67.379,35.053Z"
+                                    transform="translate(-2.571 -9.64)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+                        </div>
+
+                        <div class="nube8">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="105.875" height="70.583"
+                                viewBox="0 0 105.875 70.583">
+                                <path id="Icon_ionic-md-cloud" data-name="Icon ionic-md-cloud"
+                                    d="M86.487,33.44a33.031,33.031,0,0,0-61.76-8.823,26.434,26.434,0,0,0,2.867,52.717H84.943A22.122,22.122,0,0,0,107,55.276,21.788,21.788,0,0,0,86.487,33.44Z"
+                                    transform="translate(-1.125 -6.75)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="nube9">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90.509" height="56.557"
+                                viewBox="0 0 90.509 56.557">
+                                <path id="Icon_ionic-ios-cloud" data-name="Icon ionic-ios-cloud"
+                                    d="M77.253,30.4A26.51,26.51,0,0,0,29.092,18.185a12.528,12.528,0,0,0-4.754-.937c-6.911,0-12.513,6.08-12.619,12.973A17.264,17.264,0,0,0,0,46.605c0,8.872,7.193,16.7,16.066,16.7H74.443c8.872,0,16.066-7.83,16.066-16.7A16.53,16.53,0,0,0,77.253,30.4Z"
+                                    transform="translate(0 -6.75)" fill="#fff" />
+                            </svg>
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                </li>
+
+
+                
+
+            </ul>
+
+            <div class="carousel__controls">
+                <button class="carousel__control carousel__control--backward">&#10094;</button>
+                <button class="carousel__control carousel__control--forward">&#10095;</button>
+            </div>
+
+            <div class="carousel__indicators">
+                <label class="carousel__indicator" for="1"></label>
+                <label class="carousel__indicator" for="2"></label>
+                <label class="carousel__indicator" for="3"></label>
+                <label class="carousel__indicator" for="4"></label>
+                <label class="carousel__indicator" for="5"></label>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer id="Footer">
+        <div class="footer-container">
+            <div class="footer-container-card">
+                <div class="footer-container-card-icon">
+                    <img src="./PUBLIC/Images/imagefooter2.jpg" alt="Icono 1">
+                </div>
+                <div class="footer-container-card-text">
+                    <h3><i class="fas fa-industry"></i>Respetado en el sector</h3>
+                    <p>Hemos estado innovando en esta industria durante más de 10 años, construyendo sobre un sólido
+                        reconocimiento en el sector.</p>
+
+                </div>
+            </div>
+            <div class="footer-container-card">
+                <div class="footer-container-card-icon">
+                    <img src="./PUBLIC/Images/suelo3.jpg" alt="Icono 2">
+                </div>
+                <div class="footer-container-card-text">
+                    <h3><i class="fas fa-recycle"></i> Cadenas de Suministro Sostenibles</h3>
+                    <p>Mantenemos nuestras cadenas de producción y suministro ecológicas y locales, contribuyendo a
+                        reducir nuestra huella de carbono..</p>
+                </div>
+            </div>
+            <div class="footer-container-card">
+                <div class="footer-container-card-icon">
+                    <img src="./PUBLIC/Images/suelo1.webp" alt="Icono 3">
+                </div>
+                <div class="footer-container-card-text">
+                    <h3><i class="fas fa-truck"></i> Logística Nacional e Internacional</h3>
+                    <p>Colaboramos con empresas locales de transporte y logística..
+                    </p>
+                </div>
+            </div>
+            <div class="footer-container-card">
+                <div class="footer-container-card-icon">
+                    <img src="./PUBLIC/Images/graba1.webp" alt="Icono 4">
+                </div>
+                <div class="footer-container-card-text">
+                    <h3><i class="fas fa-certificate"></i> Quality Comes First</h3>
+                    <p>Your project needs to stand the test of time. That's why we don't scrimp on materials to give
+                        ourselves extra margin</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer-title">
+            <h2>Eliminando el plástico desechado de manera definitiva</h2>
+            <p>
+                Utilizamos plásticos reciclados para fabricar
+                productos innovadores y sostenibles
+            </p>
+        </div>
+
+
+
+        <section class="footer-last-section">
+
+
+            <div class=" footer-last-section-logo-links">
+                <ul>
+                    <h3>LINKS</h3>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contactanos</a></li>
+                    <li><a href="#">Sobre-Ecodeck</a></li>
+                    <p>Copyright © 2024 Ecodeck. Todos los derechos reservados.</p>
+
+
+
+
+                </ul>
+            </div>
+
+
+        </section>
+
+        <div class="cardVisas">
+
+            <div>
+                <img src="PUBLIC/Images/marcas.png" alt="">
+            </div>
+
+
+        </div>
+
+
+
+    </footer>
+
+</body>
+
+</html>

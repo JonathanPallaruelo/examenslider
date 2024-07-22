@@ -1,0 +1,200 @@
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilo para el carrusel */
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/* Estilo para el track del carrusel */
+.carousel__track {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    /* Elimina los puntos de la lista */
+}
+
+/* Estilo para cada slide del carrusel */
+.carousel__slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    /* Elimina el margen de cada slide */
+    padding: 0;
+    /* Elimina el padding si es necesario */
+}
+
+/* Oculta las etiquetas de radio */
+input[name="carousel"] {
+    display: none;
+}
+
+/* Estilo para los controles del carrusel */
+.carousel__controls {
+    display: none;
+}
+
+/* Estilo para los indicadores del carrusel */
+.carousel__indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.carousel__indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel__indicator:hover,
+.carousel__indicator:focus {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Estilo para los controles prev y next */
+.carousel__control--backward,
+.carousel__control--forward {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.carousel__control--backward {
+    left: 10px;
+}
+
+.carousel__control--forward {
+    right: 10px;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.carousel__activator {
+    position: absolute;
+    /* Saca los inputs del flujo normal del documento */
+    opacity: 0;
+    /* Hace que los inputs sean completamente invisibles */
+    width: 0;
+    /* Reduce el ancho de los inputs a 0 */
+    height: 0;
+    /* Reduce la altura de los inputs a 0 */
+    margin: 0;
+    /* Elimina cualquier margen */
+    padding: 0;
+    /* Elimina cualquier relleno */
+    overflow: hidden;
+    /* Asegura que cualquier contenido desbordado esté oculto */
+    z-index: -1;
+    /* Envía los inputs detrás de otros elementos */
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+}
+
+.carousel__track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel__slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slider-content__container {
+    position: relative;
+}
+
+.slider-content__background {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carousel__indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    z-index: 2;
+}
+
+.carousel__indicator {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel__indicator a {
+    text-decoration: none;
+    /* Asegúrate de que los enlaces no tengan subrayado */
+    display: inline-block;
+    /* Para asegurarte de que el enlace se comporta correctamente */
+}
+
+.carousel__indicator.active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.carousel__controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.carousel__control {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.carousel__control--backward {
+    left: 10px;
+}
+
+.carousel__control--forward {
+    right: 10px;
+}

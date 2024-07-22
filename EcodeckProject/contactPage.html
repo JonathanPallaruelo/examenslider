@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="PUBLIC/Less/normalize.css">
+    <link rel="stylesheet" type="text/css" href="PUBLIC/Less/common.css">
+
+
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,800;1,900&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Section</title>
+</head>
+
+<body class="bodyContact">
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+            font-weight: 700;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            text-align: start;
+            justify-content: center;
+            border-radius: 8px;
+             
+        }
+
+        .modal-content h2,
+        p {
+
+            margin-bottom: 10px;
+
+
+        }
+
+        .modal-content h2 {
+
+            color: #5abc50;
+            font-size: 35px !important;
+        }
+
+        .label {
+
+            margin-top: 15px;
+
+        }
+
+        .btn {
+
+            margin-top: 20px;
+            margin-bottom: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 20px;
+
+            background-color: #1363a9 !important;
+            border: 2px solid #1363a9 !important;
+            color: #ffffff;
+            padding: 8px 16px;
+
+        }
+
+        .cookieForm input {
+            margin-top: 15px;
+            padding-bottom: 10px;
+
+        }
+
+        .btn:hover {
+
+            background-color: #ffffff !important;
+            color: #1363a9 !important;
+            border: 2px solid #1363a9 !important;
+            margin-bottom: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+
+
+        .info-div {
+            padding: 5px;
+            background-color: #e2dcdc;
+            margin: 10px;
+            border-radius: 8px;
+            margin-left: -4px;
+            border: 1px solid black;
+        }
+
+        .info-div p {
+
+            padding: 5px;
+        }
+
+        .modal-content a {
+
+            color: #BD9851;
+
+        }
+
+        .modal-content img {
+
+            width: 180px;
+            height: 120px;
+            text-align: center;
+            margin-left: 120px;
+            padding: 10px;
+        }
+    </style>
+
+
+
+
+    <header class="header">
+
+        <div id="cookieModal" class="modal">
+            <div class="modal-content">
+                <h2>Esta web utiliza cookies</h2>
+                <img src="http://localhost/catalogoEcodeck/wordpress/wp-content/themes/Ecodeck/images/cookiesimages.jpg"
+                    alt="Ilustración de galletas">
+                <div class="info-div">
+
+                    <p>ECODECK usa cookies propias (necesarias) y de terceros para personalizar el contenido, ofrecer
+                        anuncios
+                        personalizados, y análisis del tráfico.</p>
+
+                </div>
+                <p>Puedes Aceptar o configurar las cookies pulsando en Configurar.</p>
+                <a href="ruta/a/informacion_de_cookies.html">Leer toda la información de cookies de la web.</a>
+                <div class="buttons">
+                    <button class="btn" id="configButton">Configurar</button>
+                    <button class="btn" id="rejectButton">Rechazar</button>
+                    <button class="btn" id="acceptButton">Aceptar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="cookieModal" class="modal">
+            <div class="modal-content">
+                <h2>Esta web utiliza cookies</h2>
+                <img src="http://localhost/catalogoEcodeck/wordpress/wp-content/themes/Ecodeck/images/cookiesimages.jpg"
+                    alt="Ilustración de galletas">
+                <div class="info-div">
+
+                    <p>ECODECK usa cookies propias (necesarias) y de terceros para personalizar el contenido, ofrecer
+                        anuncios
+                        personalizados, y análisis del tráfico.</p>
+
+                </div>
+                <p>Puedes Aceptar o configurar las cookies pulsando en Configurar.</p>
+                <a href="ruta/a/informacion_de_cookies.html">Leer toda la información de cookies de la web.</a>
+                <div class="buttons">
+                    <button class="btn" id="configButton">Configurar</button>
+                    <button class="btn" id="rejectButton">Rechazar</button>
+                    <button class="btn" id="acceptButton">Aceptar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="configModal" class="modal">
+            <div class="modal-content">
+                <h2>Personalizar cookies</h2>
+                <p>Selecciona las cookies que quieres permitir:</p>
+                <form id="cookieForm" class="cookieForm">
+                    <label>
+                        <input type="checkbox" name="necessary" disabled checked>
+                        Necesarias
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="functionality">
+                        Funcionalidad
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="analytics">
+                        Análisis y rendimiento
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="advertising">
+                        Publicidad
+                    </label><br>
+                    <a href="ruta/a/informacion_de_cookies.html">Leer toda la información de cookies de la web.</a>
+                    <!-- <button type="button" id="saveConfigButton" class="btn">Guardar configuración</button> -->
+                </form>
+                <div class="buttons">
+                    <button class="btn" id="backButton">Volver</button>
+                    <button class="btn" id="acceptAllConfigButton">Aceptar todo</button>
+                    <button class="btn" id="acceptSelectionConfigButton">Aceptar selección</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="cookieStatus"></div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var cookieModal = document.getElementById("cookieModal");
+                var configModal = document.getElementById("configModal");
+                var configButton = document.getElementById("configButton");
+                var rejectButton = document.getElementById("rejectButton");
+                var acceptButton = document.getElementById("acceptButton");
+                var saveConfigButton = document.getElementById("saveConfigButton");
+                var backButton = document.getElementById("backButton");
+                var acceptAllConfigButton = document.getElementById("acceptAllConfigButton");
+                var acceptSelectionConfigButton = document.getElementById("acceptSelectionConfigButton");
+                var cookieForm = document.getElementById("cookieForm");
+                var cookieStatus = document.getElementById("cookieStatus");
+
+                function setCookie(name, value, days) {
+                    let expires = "";
+                    if (days) {
+                        const date = new Date();
+                        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                        expires = "; expires=" + date.toUTCString();
+                    }
+                    document.cookie = name + "=" + (value || "") + expires + "; path=/; domain=localhost; SameSite=Strict";
+                    // Cuando tengamos dominio
+                }
+
+                function getCookie(name) {
+                    const nameEQ = name + "=";
+                    const ca = document.cookie.split(';');
+                    for (let i = 0; i < ca.length; i++) {
+                        let c = ca[i];
+                        while (c.charAt(0) === ' ') c = c.substring(1);
+                        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                    }
+                    return null;
+                }
+
+                if (getCookie("cookie_consent") !== "accepted") {
+                    cookieModal.style.display = "block";
+                } else {
+                    cookieModal.style.display = "none";
+                }
+
+                configButton.onclick = function () {
+                    cookieModal.style.display = "none";
+                    configModal.style.display = "block";
+                }
+
+                rejectButton.onclick = function () {
+                    localStorage.setItem("cookiesAccepted", "false");
+                    localStorage.setItem("functionalityCookies", "false");
+                    localStorage.setItem("analyticsCookies", "false");
+                    localStorage.setItem("advertisingCookies", "false");
+                    setCookie("cookie_consent", "rejected", 365);
+                    cookieModal.style.display = "none";
+                }
+
+                acceptButton.onclick = function () {
+                    var formData = new FormData(cookieForm);
+                    localStorage.setItem("cookiesAccepted", "true");
+                    localStorage.setItem("functionalityCookies", formData.get("functionality") === "on");
+                    localStorage.setItem("analyticsCookies", formData.get("analytics") === "on");
+                    localStorage.setItem("advertisingCookies", formData.get("advertising") === "on");
+                    setCookie("cookie_consent", "accepted", 365);
+                    cookieModal.style.display = "none";
+                }
+
+                backButton.onclick = function () {
+                    configModal.style.display = "none";
+                    cookieModal.style.display = "block";
+                }
+
+                acceptAllConfigButton.onclick = function () {
+                    localStorage.setItem("cookiesAccepted", "true");
+                    localStorage.setItem("functionalityCookies", "true");
+                    localStorage.setItem("analyticsCookies", "true");
+                    localStorage.setItem("advertisingCookies", "true");
+                    setCookie("cookie_consent", "accepted", 365);
+                    configModal.style.display = "none";
+                }
+
+                acceptSelectionConfigButton.onclick = function () {
+                    var formData = new FormData(cookieForm);
+                    localStorage.setItem("cookiesAccepted", "true");
+                    localStorage.setItem("functionalityCookies", formData.get("functionality") === "on");
+                    localStorage.setItem("analyticsCookies", formData.get("analytics") === "on");
+                    localStorage.setItem("advertisingCookies", formData.get("advertising") === "on");
+                    setCookie("cookie_consent", "accepted", 365);
+                    configModal.style.display = "none";
+
+                }
+            });
+        </script>
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="section.html" class="nav__logo">
+                    <img src="./PUBLIC/Images/logo2 (1).png" alt="Logo">
+                </a>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__burger"></i>
+                    <i class="ri-close-line nav__close"></i>
+                </div>
+            </div>
+
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+
+
+
+                    <li class="dropdown__item">
+                        <div class="nav__link">
+                            Productos <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    Rejillas<i class="ri-pie-chart-line"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    Caminos <i class="ri-road-line"></i>
+                                </a>
+                            </li>
+
+
+                            <li class="dropdown__subitem">
+                                <div class="dropdown__link">
+                                    <i class="ri-bar-chart-line"></i>Suelos <i class="ri-add-line dropdown__add"></i>
+                                </div>
+
+                                <ul class="dropdown__submenu">
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-file-list-line"></i>Aparcamientos
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-cash-line"></i> Agua
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-refund-2-line"></i> Grava
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="SobreEcodeckLess.html" class="nav__link">Sobre Ecodeck</a></li>
+                    <li><a href="http://localhost/catalogoEcodeck/wordpress/tienda/" class="nav__link">Distribuidor
+                            Oficial</a></li>
+
+
+                    <li class="dropdown__item">
+
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-user-line"></i> Profiles
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-lock-line"></i> Accounts
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-message-3-line"></i> Messages
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <div class="bottonNavDiv">
+                        <button class="contacButton">
+                            <a class="ancleButtonContact" href="contactPage.html">Contacta</a>
+                        </button>
+
+
+                    </div>
+
+                </ul>
+
+
+
+            </div>
+        </nav>
+    </header>
+    <div id="overlay"></div>
+
+    <script>
+        const showMenu = (toggleId, navId) => {
+            const toggle = document.getElementById(toggleId);
+            const nav = document.getElementById(navId);
+            const overlay = document.getElementById('overlay');
+
+            toggle.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    nav.classList.toggle('show-menu');
+                    toggle.classList.toggle('show-icon');
+                    overlay.style.display = nav.classList.contains('show-menu') ? 'block' : 'none';
+                }
+            });
+
+            //function para controloar el overlay
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    nav.classList.remove('show-menu');
+                    toggle.classList.remove('show-icon');
+                    overlay.style.display = 'none';
+                }
+            });
+        };
+
+        showMenu('nav-toggle', 'nav-menu');
+    </script>
+
+
+    <div id="contactSectionTop" class="contactSectionTop">
+        <h2 class="contactSectionTop-h2">CONTÁCTANOS</h2>
+        <p class="contactSectionTop-text">Tu opinión es importante para nosotros.</p>
+    </div>
+    <div id="containerSectionForm" class="containerForm">
+        <main class=" containerForm-row">
+
+            <section class=" containerForm-row-col-left">
+
+                <div class=" containerForm-contactInfo-div">
+
+                    <div class="containerForm-contactInfo-div-container-iconGroup">
+                        <div class=" containerForm-contactInfo-div-container-iconGroup-iconDiv">
+                            <i class=" fa-solid fa-phone"></i>
+                        </div>
+                        <div class="containerForm-contactInfo-div-container-iconGroup-detailsDiv">
+                            <span class="spanIcon">Telefono</span>
+                            <span class="subSpan">+00 110 111 00</span>
+                        </div>
+                    </div>
+
+                    <div class="containerForm-contactInfo-div-container-iconGroup">
+                        <div class="containerForm-contactInfo-div-container-iconGroup-iconDiv">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="containerForm-contactInfo-div-container-iconGroup-detailsDiv">
+                            <span class="spanIcon">Email</span>
+                            <span class="subSpan">name.ejemplo@dasdas.com</span>
+                        </div>
+                    </div>
+
+                    <div class="containerForm-contactInfo-div-container-iconGroup">
+                        <div class="containerForm-contactInfo-div-container-iconGroup-iconDiv">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="containerForm-contactInfo-div-container-iconGroup-detailsDiv">
+                            <span class=" spanIcon">Whats-App</span>
+                            <span class="subSpan">Habla con nosotros</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </section>
+
+
+            <section class=" containerForm-row-col-right">
+
+                <form class=" containerForm-row-col-right-messageForm stupid">
+
+                    <div class="inputGroup  inputGroup-halfWidth">
+                        <input type="text" name="" required="required">
+                        <label> Nombre</label>
+                    </div>
+
+                    <div class="inputGroup inputGroup-halfWidth">
+                        <input type="text" name="" required="required">
+                        <label class="inputGroup-label">Email</label>
+                    </div>
+
+                    <div class="inputGroup  inputGroup-fullWidth">
+                        <input type="text" name="" required="required">
+                        <label>Asunto</label>
+                    </div>
+
+                    <div class="inputGroup  inputGroup-fullWidth">
+                        <textarea required="required"></textarea>
+                        <label class="tellLabel">Cuentanos</label>
+                    </div>
+
+                    <div class="inputGroup  inputGroup-fullWidth">
+                        <button>Enviar mensaje</button>
+                    </div>
+
+                </form>
+
+
+            </section>
+
+        </main>
+    </div>
+    <footer id="Footer">
+        <div class="footer-container">
+            <div class="footer-container-card">
+                <div class="footer-container-card-icon">
+                    <img src="./PUBLIC/Images/imagefooter2.jpg" alt="Icono 1">
+                </div>
+                <div class="footer-container-card-text">
+                    <h3><i class="fas fa-industry"></i>Respetado en el sector</h3>
+                    <p>Hemos estado innovando en esta industria durante más de 10 años, construyendo sobre un sólido
+                        reconocimiento en el sector.</p>
+
+                </div>
+            </div>
+            <div class="footer-container-card">
+                <div class="footer-container-card-icon">
+                    <img src="./PUBLIC/Images/suelo3.jpg" alt="Icono 2">
+                </div>
+                <div class="footer-container-card-text">
+                    <h3><i class="fas fa-recycle"></i> Cadenas de Suministro Sostenibles</h3>
+                    <p>Mantenemos nuestras cadenas de producción y suministro ecológicas y locales, contribuyendo a
+                        reducir nuestra huella de carbono..</p>
+                </div>
+            </div>
+            <div class="footer-container-card">
+                <div class="footer-container-card-icon">
+                    <img src="./PUBLIC/Images/suelo1.webp" alt="Icono 3">
+                </div>
+                <div class="footer-container-card-text">
+                    <h3><i class="fas fa-truck"></i> Logística Nacional e Internacional</h3>
+                    <p>Colaboramos con empresas locales de transporte y logística..
+                    </p>
+                </div>
+            </div>
+            <div class="footer-container-card">
+                <div class="footer-container-card-icon">
+                    <img src="./PUBLIC/Images/graba1.webp" alt="Icono 4">
+                </div>
+                <div class="footer-container-card-text">
+                    <h3><i class="fas fa-certificate"></i> Quality Comes First</h3>
+                    <p>Your project needs to stand the test of time. That's why we don't scrimp on materials to give
+                        ourselves extra margin</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer-title">
+            <h2>Eliminando el plástico desechado de manera definitiva</h2>
+            <p>
+                Utilizamos plásticos reciclados para fabricar
+                productos innovadores y sostenibles
+            </p>
+        </div>
+
+
+
+        <section class="footer-last-section">
+
+
+            <div class=" footer-last-section-logo-links">
+                <ul>
+                    <h3>LINKS</h3>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contactanos</a></li>
+                    <li><a href="#">Sobre-Ecodeck</a></li>
+                    <p>Copyright © 2024 Ecodeck. Todos los derechos reservados.</p>
+
+
+
+
+                </ul>
+            </div>
+
+
+        </section>
+
+        <div class="cardVisas">
+
+            <div>
+                <img src="PUBLIC/Images/marcas.png" alt="">
+            </div>
+
+
+        </div>
+
+
+
+    </footer>
+
+</body>
+
+</html>

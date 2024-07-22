@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PUBLIC/Less/normalize.css">
+    <link rel="stylesheet" type="text/css" href="PUBLIC/Less/CssLess/css.css">
+  
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="section3.css">
+   
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,800;1,900&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>paginas</title>
+
+</head>
+
+<body class="bodyContact">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="PUBLIC/Images/logoEcodesck-removebg-preview.png" alt="Logo">
+        </div>
+        <div class="menu-toggle" id="menu-toggle">
+            <div class="hamburgerMenu">
+                <img class="hamburguerimg" src="PUBLIC/Images/menuhamburguer-removebg-preview.png" alt="">
+            </div>
+        </div>
+
+        <ul>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#sobre-ecodeck">Sobre Ecodeck</a></li>
+            <li><a href="#distribuidor-oficial">Distribuidor Oficial</a></li>
+            <button class="ContactButton">Contacta</button>
+        </ul>
+    </nav>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbar = document.querySelector('.navbar');
+
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navbar.classList.remove('active');
+            }
+        });
+    </script>
+
+    <section class="principal-Section">
+
+        <div class="info">
+
+            <img class="nube1" src="PUBLIC/Images/nube1.png" alt="">
+            <img class="nube2" src="PUBLIC/Images/nube2.png" alt="">
+            <img class="nube3" src="PUBLIC/Images/nube3.png" alt="">
+            <img class="nube4" src="PUBLIC/Images/nube4.png" alt="">
+            <img class="nube5" src="PUBLIC/Images/nube5.png" alt="">
+            <img class="nube6" src="PUBLIC/Images/nube6.png" alt="">
+            <img class="nube7" src="PUBLIC/Images/nube6.png" alt="">
+            <img class="nube8" src="PUBLIC/Images/nube3.png" alt="">
+
+
+            <h1>Las rejillas Ecodeck son...</h1>
+
+            <P>Tu acceso temporal por obras</P>
+            <h4>100% Ecologico , permeable y resistente</h4>
+            <button>Comprar</button>
+
+            <img class="machine" src="PUBLIC/contenedores/escabadora-removebg-preview.png" alt="">
+            <img class="obra" src="PUBLIC/contenedores/obras-removebg-preview.png" alt="">
+
+
+
+
+        </div>
+
+
+
+
+
+    </section>
+
+    <footer class="footer">
+
+
+
+        <div class="footer-container">
+            <div class="footer-card">
+                <div class="icon">
+                    <img src="./PUBLIC/Images/imagefooter2.jpg" alt="Icono 1">
+                </div>
+                <div class="text">
+                    <h3><i class="fas fa-industry"></i> Industry Respected</h3>
+                    <p>We've been innovating in this industry for over 10 years, building upon solid recognition in
+                        the industry.</p>
+                </div>
+            </div>
+            <div class="footer-card">
+                <div class="icon">
+                    <img src="./PUBLIC/Images/imagefooter3.jpg" alt="Icono 2">
+                </div>
+                <div class="text">
+                    <h3><i class="fas fa-recycle"></i> Sustainable Supply Chains</h3>
+                    <p>We keep our manufacturing & supply chains green & local, helping to reduce our carbon
+                        footprint.</p>
+                </div>
+            </div>
+            <div class="footer-card">
+                <div class="icon">
+                    <img src="./PUBLIC/Images/imagefooter4.webp" alt="Icono 3">
+                </div>
+                <div class="text">
+                    <h3><i class="fas fa-truck"></i> National & International Logistics</h3>
+                    <p>We partner with local haulage and logistics partners.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-card">
+                <div class="icon">
+                    <img src="./PUBLIC/Images/imagefooter5.jpg" alt="Icono 4">
+                </div>
+                <div class="text">
+                    <h3><i class="fas fa-certificate"></i> Quality Comes First</h3>
+                    <p>Your project needs to stand the test of time. That's why we don't scrimp on materials to give
+                        ourselves extra margin</p>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="footer-title">
+            <h2>Locking in Waste Plastic for Good.</h2>
+            <p>IBRAN is a sustainable UK manufacturer of grass and gravel parking grids.
+                .</p>
+        </div>
+
+
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+
+        </div>
+
+        <section class="section">
+            <div class="logo">
+                <img src="./PUBLIC/Images/logoEcodesck-removebg-preview.png" alt="Logo">
+                <div class="links">
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">CONTACTANOS</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+    </footer>
+</body>
+
+</html>

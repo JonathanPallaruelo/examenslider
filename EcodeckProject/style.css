@@ -1,0 +1,257 @@
+/*
+Theme Name: CatologoEcodeck
+
+Author: Jonathan Pallaruelo
+Author URI: https://wordpress.org/
+Description:Tema muy bonito
+Tags: black , simple
+Requires at least: 5.0
+Tested up to: 5.4
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrFJA.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLCz7V1s.ttf) format('truetype');
+  }
+  .card-horizontal {
+    display: flex;
+    flex-direction: row;
+    width: 380px;
+    height: 180px;
+    margin: 0px;
+  }
+  .card-horizontal .textCard {
+    margin: 0px 5px;
+  }
+  .card-horizontal .textCard p:nth-child(1) {
+    font-size: 14px;
+    color: black;
+    font-weight: 700;
+  }
+  .card-horizontal .textCard p:nth-child(2) {
+    font-size: 14px;
+    margin-top: 0px;
+    color: #b1b1b1;
+  }
+  .card-horizontal .priceButton .price-div {
+    margin: 5px;
+  }
+  .card-horizontal .priceButton .price-div p:nth-child(1) {
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #5abc50;
+  }
+  .card-horizontal .priceButton .price-div p:nth-child(2) {
+    margin-top: -12px;
+    color: black;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .card-horizontal .priceButton .price-div .nextDivbutton .buttongreenarrow {
+    cursor: pointer;
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+  .card-horizontal .div-imageCard {
+    border-radius: 8px 0px 0px 8px;
+  }
+  .card-horizontal .imageCard {
+    width: 380px;
+    height: 180px;
+    background-size: cover;
+    background-position: center bottom;
+  }
+  .card-horizontal .textCard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+  h1 {
+    font-family: 'Arial, sans-serif';
+    font-weight: 700;
+    font-size: 40px;
+  }
+  h2 {
+    font-family: 'Arial, sans-serif';
+    font-weight: 700;
+    font-size: 24px;
+  }
+  h3 {
+    font-family: 'Arial, sans-serif';
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .ContactButton {
+    background-color: #1363a9;
+    border: 2px solid #1363a9;
+    color: #ffffff;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 20px;
+    /* Simplificación para los bordes redondeados */
+    background-image: url('/Images/contactImage.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px;
+  }
+  .ContactButton:hover {
+    background-color: #ffffff;
+    color: #1363a9;
+    border: 2px solid #1363a9;
+  }
+  .buttongreenarrow {
+    margin-left: 20px;
+    width: 40px;
+    cursor: pointer;
+  }
+  .priceButton {
+    display: flex;
+    flex-direction: row;
+  }
+  .card {
+    border-radius: 8px 8px 8px;
+    margin: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .card div {
+    overflow: hidden;
+  }
+  .card.vertical {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: 320px;
+  }
+  .card.vertical .imageCard {
+    width: 180px;
+    height: 150px;
+    border-radius: 8px 8px 0px 0px;
+  }
+  .card.vertical .textCard {
+    margin: 5px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+  .card.vertical .textCard p {
+    font-size: 14px;
+  }
+  .card.vertical .textCard p:nth-child(1) {
+    font-weight: bold;
+    margin: 0px;
+    color: black;
+  }
+  .card.vertical .textCard p:nth-child(2) {
+    margin-top: 14px;
+    color: #b1b1b1;
+  }
+  .card.vertical .textCard .priceButton .price-div p {
+    font-size: 14px;
+  }
+  .card.vertical .textCard .priceButton .price-div p:nth-child(1) {
+    font-weight: bold;
+    color: #5abc50;
+    margin-top: 14px;
+  }
+  .card.vertical .textCard .priceButton .price-div p:nth-child(2) {
+    font-size: 14px;
+    color: black;
+    font-weight: 700;
+    margin-top: -2px;
+  }
+  .card.vertical .textCard .priceButton .price-div .nextDivbutton .buttongreenarrow {
+    cursor: pointer;
+    margin-left: 40px;
+  }
+  .card.horizontal {
+    display: flex;
+    flex-direction: row;
+    width: 380px;
+    height: 180px;
+    margin: 0px;
+  }
+  .card.horizontal .textCard {
+    margin: 0px 5px;
+  }
+  .card.horizontal .textCard p:nth-child(1) {
+    font-size: 14px;
+    color: black;
+    font-weight: 700;
+  }
+  .card.horizontal .textCard p:nth-child(2) {
+    font-size: 14px;
+    margin-top: 0px;
+    color: #b1b1b1;
+  }
+  .card.horizontal .priceButton .price-div {
+    margin: 5px;
+  }
+  .card.horizontal .priceButton .price-div p:nth-child(1) {
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #5abc50;
+  }
+  .card.horizontal .priceButton .price-div p:nth-child(2) {
+    margin-top: -12px;
+    color: black;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .card.horizontal .priceButton .price-div .nextDivbutton .buttongreenarrow {
+    cursor: pointer;
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+  .card.horizontal .div-imageCard {
+    border-radius: 8px 0px 0px 8px;
+  }
+  .card.horizontal .imageCard {
+    width: 380px;
+    height: 180px;
+    background-size: cover;
+    background-position: center bottom;
+  }
+  .card.horizontal .textCard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+  .card.dark {
+    background-color: #707070;
+    color: #ffffff;
+  }
+  .card.lightgray {
+    background-color: #ffffff;
+    color: #707070;
+  }
+  
+  
+  

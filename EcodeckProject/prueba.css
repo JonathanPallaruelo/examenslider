@@ -1,0 +1,49 @@
+.SostenibilidadInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.divSostenibilidad, .divSostenibilidadImg {
+    flex: 1 1 45%;
+    margin: 10px;
+}
+
+.divSostenibilidad h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.divSostenibilidadText p {
+    margin: 10px 0;
+}
+
+.divSostenibilidadImg div {
+    margin-bottom: 10px;
+}
+
+.divSostenibilidadImgRight {
+    text-align: right;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .SostenibilidadInfo {
+        flex-direction: column;
+    }
+
+    .divSostenibilidad, .divSostenibilidadImg {
+        flex: 1 1 100%;
+    }
+
+    .divSostenibilidadImgRight {
+        text-align: center;
+    }
+}

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PUBLIC/Less/normalize.css">
+    <link rel="stylesheet" type="text/css" href="PUBLIC/Less/common.css">
+
+
+
+
+    <title>SobreEcodeck</title>
+</head>
+
+<body>
+
+    <body class="bodyContact">
+        <header class="header">
+            <nav class="nav container">
+                <div class="nav__data">
+                    <a href="#" class="nav__logo">
+                        <img src="./PUBLIC/Images/logo2 (1).png" alt="Logo">
+                    </a>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line nav__burger"></i>
+                        <i class="ri-close-line nav__close"></i>
+                    </div>
+                </div>
+
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+
+
+
+                        <li class="dropdown__item">
+                            <div class="nav__link">
+                                <a href="section.html"> Productos </a><i
+                                    class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <ul class="dropdown__menu">
+                                <li>
+                                    <a href="#" class="dropdown__link">
+                                        Rejillas<i class="ri-pie-chart-line"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="dropdown__link">
+                                        Caminos <i class="ri-road-line"></i>
+                                    </a>
+                                </li>
+
+
+                                <li class="dropdown__subitem">
+                                    <div class="dropdown__link">
+                                        <i class="ri-bar-chart-line"></i>Suelos <i
+                                            class="ri-add-line dropdown__add"></i>
+                                    </div>
+
+                                    <ul class="dropdown__submenu">
+                                        <li>
+                                            <a href="#" class="dropdown__sublink">
+                                                <i class="ri-file-list-line"></i>Aparcamientos
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#" class="dropdown__sublink">
+                                                <i class="ri-cash-line"></i> Agua
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#" class="dropdown__sublink">
+                                                <i class="ri-refund-2-line"></i> Grava
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><a href="http://localhost/catalogoEcodeck\EcodeckProject/SobreEcodeckless.html" class="nav__link">Sobre Ecodeck</a></li>
+                        <li><a href="http://localhost/catalogoEcodeck/wordpress/tienda/" class="nav__link">Distribuidor Oficial</a></li>
+
+
+
+                        <li class="dropdown__item">
+
+
+                            <ul class="dropdown__menu">
+                                <li>
+                                    <a href="#" class="dropdown__link">
+                                        <i class="ri-user-line"></i> Profiles
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="dropdown__link">
+                                        <i class="ri-lock-line"></i> Accounts
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="dropdown__link">
+                                        <i class="ri-message-3-line"></i> Messages
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <div class="bottonNavDiv">
+                            <button class="contacButton">
+                                <a class="ancleButtonContact" href="contactPage.html">Contacta</a>
+                            </button>
+
+
+                        </div>
+
+                    </ul>
+
+
+
+                </div>
+            </nav>
+        </header>
+        <div id="overlay"></div>
+
+        <script>
+            const showMenu = (toggleId, navId) => {
+                const toggle = document.getElementById(toggleId);
+                const nav = document.getElementById(navId);
+                const overlay = document.getElementById('overlay');
+
+                toggle.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        nav.classList.toggle('show-menu');
+                        toggle.classList.toggle('show-icon');
+                        overlay.style.display = nav.classList.contains('show-menu') ? 'block' : 'none';
+                    }
+                });
+
+                //function para controloar el overlay
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768) {
+                        nav.classList.remove('show-menu');
+                        toggle.classList.remove('show-icon');
+                        overlay.style.display = 'none';
+                    }
+                });
+            };
+
+            showMenu('nav-toggle', 'nav-menu');
+        </script>
+
+        <section class="principal-Section">
+
+            <div class="info">
+                <h1 class="title1aboutus"> de experiencia, innovando
+                </h1>
+                <h1 class="title2aboutus"> y creciendo juntos</h1>
+
+                <P>Más de 16 Años</P>
+                <h4>100% Ecologico , permeable y resistente</h4>
+                <button class="ProductButton">Productos</button>
+
+                <img class="contacImg" src="PUBLIC/Images/sostenibilidad.webp" alt="">
+                <img class="contacImgPlastic" src="PUBLIC/Images/recicled.jpeg" alt="">
+                <img class="contacImgGaranty" src="PUBLIC/Images/ecodeck-gatantia-25-anos.jpg" alt="">
+                <img class="contacHang" src="PUBLIC/Images/ManoVerde.png" alt="">
+
+
+
+            </div>
+        </section>
+
+        <section class="SostenibilidadSection">
+            <div class="divImage">
+                <img src="PUBLIC/Images/sostenibilidadSection.webp" alt="">
+            </div>
+
+        </section>
+        <div class="Sinfo">
+            <section class="SostenibilidadInfo">
+                <div class="divSostenibilidad">
+
+                    <div class="divSostenibilidadText">
+                        <h1>ECO SOSTENIBLE</h1>
+                        <div>
+                            <p>Nuestras rejillas ecológicas cumplen con las regulaciones SUDS
+
+                            </p>
+                            <p>Ley de Gestión del Agua y
+                                las Inundaciones de 2010.</p>
+                            <p>Reprocesamos todo el material sobrante, reduciendo al mínimo los residuos.</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="divSostenibilidadImg">
+                    <div class="imagecontainer">
+                        <img class="publicone" src="PUBLIC/Images/reviews.png" alt="fallo">
+
+
+                    </div>
+                    <div class="imagecontainer2">
+                        <img class="publicsecond" src="PUBLIC/Images/Coral-Products.png" alt="">
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+
+        <div class="VidrioSection">
+
+        </div>
+
+        <div class="Vidrio">
+
+
+        </div>
+
+        </div>
+
+
+
+        <footer id="Footer">
+            <div class="footer-container">
+                <div class="footer-container-card">
+                    <div class="footer-container-card-icon">
+                        <img src="./PUBLIC/Images/imagefooter2.jpg" alt="Icono 1">
+                    </div>
+                    <div class="footer-container-card-text">
+                        <h3><i class="fas fa-industry"></i>Respetado en el sector</h3>
+                        <p>Hemos estado innovando en esta industria durante más de 10 años, construyendo sobre un sólido
+                            reconocimiento en el sector.</p>
+
+                    </div>
+                </div>
+                <div class="footer-container-card">
+                    <div class="footer-container-card-icon">
+                        <img src="./PUBLIC/Images/suelo3.jpg" alt="Icono 2">
+                    </div>
+                    <div class="footer-container-card-text">
+                        <h3><i class="fas fa-recycle"></i> Cadenas de Suministro Sostenibles</h3>
+                        <p>Mantenemos nuestras cadenas de producción y suministro ecológicas y locales, contribuyendo a
+                            reducir nuestra huella de carbono..</p>
+                    </div>
+                </div>
+                <div class="footer-container-card">
+                    <div class="footer-container-card-icon">
+                        <img src="./PUBLIC/Images/suelo1.webp" alt="Icono 3">
+                    </div>
+                    <div class="footer-container-card-text">
+                        <h3><i class="fas fa-truck"></i> Logística Nacional e Internacional</h3>
+                        <p>Colaboramos con empresas locales de transporte y logística..
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-container-card">
+                    <div class="footer-container-card-icon">
+                        <img src="./PUBLIC/Images/graba1.webp" alt="Icono 4">
+                    </div>
+                    <div class="footer-container-card-text">
+                        <h3><i class="fas fa-certificate"></i> Quality Comes First</h3>
+                        <p>Your project needs to stand the test of time. That's why we don't scrimp on materials to give
+                            ourselves extra margin</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="footer-title">
+                <h2>Eliminando el plástico desechado de manera definitiva</h2>
+                <p>
+                    Utilizamos plásticos reciclados para fabricar
+                    productos innovadores y sostenibles
+                </p>
+            </div>
+
+
+
+            <section class="footer-last-section">
+
+
+                <div class=" footer-last-section-logo-links">
+                    <ul>
+                        <h3>LINKS</h3>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Contactanos</a></li>
+                        <li><a href="#">Sobre-Ecodeck</a></li>
+                        <p>Copyright © 2024 Ecodeck. Todos los derechos reservados.</p>
+
+
+
+
+                    </ul>
+                </div>
+
+
+            </section>
+
+            <div class="cardVisas">
+
+                <div>
+                    <img src="PUBLIC/Images/marcas.png" alt="">
+                </div>
+
+
+            </div>
+
+
+
+        </footer>
+
+
+
+    </body>
+
+</html>

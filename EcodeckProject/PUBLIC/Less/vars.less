@@ -1,0 +1,248 @@
+//variables Less //
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+// Definimos variables para tamaños
+
+// sizes
+
+@ff-bold: 'Poppins Bold';
+@ff-regular: 'Poppins Regular';
+
+@sz-l: 40px; // h1
+@sz-m: 24px; // h2
+@sz-s: 14px; // h3
+@sz-xs: 14px; // p
+
+// Definir variables para la familia de la fuente y el peso
+
+@font-weight-regular: 400; // regular
+@font-weight-bold: 700; // bold
+
+// Definimos variables para colores 
+
+
+//formulario 
+
+@primary-color: #3498db;
+@secondary-color: #2ecc71;
+@background-color: #f9f9f9;
+@text-color: #333;
+
+// Definir variables de fuente
+@font-family: 'Arial, sans-serif';
+@font-size-base: 16px;
+
+
+
+
+// Variables de color
+@color-white: #ffffff;
+@color-light-gray: #f0f0f0;
+@color-gray: #b1b1b1;
+@color-dark-gray: #707070;
+
+@color-green: #5abc50;
+@color-gold: #bd9851;
+@color-pink: #bd5196;
+@color-blue: #1363a9;
+
+
+//mixings para las cards 
+.card-vertical() {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: 320px;
+
+    .imageCard {
+        width: 180px;
+        height: 150px;
+        border-radius: 8px 8px 0px 0px;
+
+    }
+
+    .textCard {
+        margin: 5px;
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+
+        p {
+            font-size: 14px;
+
+            &:nth-child(1) {
+                font-weight: bold;
+                margin: 0px;
+                color: black
+            }
+
+            &:nth-child(2) {
+                margin-top: 14px;
+                color: @color-gray;
+
+
+            }
+
+        }
+
+        .priceButton {
+
+            .price-div {
+
+                p {
+                    font-size: 14px;
+
+                    &:nth-child(1) {
+                        font-weight: bold;
+
+                        color: @color-green;
+                        margin-top: 14px;
+
+                    }
+
+                    &:nth-child(2) {
+                        font-size: 14px;
+                        color: black;
+
+                        font-weight: @font-weight-bold;
+                        margin-top: -2px;
+
+                    }
+
+                }
+
+                .nextDivbutton {
+
+                    .buttongreenarrow {
+                        cursor: pointer;
+                        margin-left: 40px;
+
+
+
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
+}
+
+.card-horizontal {
+    display: flex;
+    flex-direction: row;
+    width: 380px;
+    height: 180px;
+    margin: 0px;
+
+
+    .textCard {
+        margin: 0px 5px;
+
+        p {
+            @font-family: 'Poppins';
+
+            &:nth-child(1) {
+
+                font-size: 14px;
+                color: black;
+                font-weight: @font-weight-bold;
+            }
+
+            &:nth-child(2) {
+                font-size: 14px;
+                margin-top: 0px;
+                color: @color-gray;
+
+            }
+
+        }
+
+    }
+
+    .priceButton {
+
+        .price-div {
+            margin: 5px;
+
+
+            p {
+
+                &:nth-child(1) {
+                    margin-top: 0px;
+                    font-weight: bold;
+                    font-size: 14px;
+                    color: @color-green
+                }
+
+                &:nth-child(2) {
+                    margin-top: -12px;
+                    color: black;
+                    font-weight: @font-weight-bold;
+                    font-size: 14px;
+
+                }
+
+
+            }
+
+            .nextDivbutton {
+
+                .buttongreenarrow {
+                    cursor: pointer;
+                    margin-left: 15px;
+                    margin-top: 15px;
+
+
+
+                }
+
+
+            }
+
+
+        }
+
+    }
+
+
+    .div-imageCard {
+
+        border-radius: 8px 0px 0px 8px;
+    }
+
+    .imageCard {
+        width: 380px;
+        height: 180px;
+        background-size: cover;
+        background-position: center bottom;
+
+    }
+
+
+    .textCard {
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+
+
+    }
+}
+
+.card-dark() {
+    background-color: @color-dark-gray;
+    color: @color-white;
+}
+
+.card-lightgray() {
+    background-color: @color-white;
+    color: @color-dark-gray;
+}

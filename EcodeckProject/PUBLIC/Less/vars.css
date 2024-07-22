@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrFJA.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLCz7V1s.ttf) format('truetype');
+}
+
+.card-horizontal {
+  display: flex;
+  flex-direction: row;
+  width: 380px;
+  height: 180px;
+  margin: 0px;
+}
+
+.card-horizontal .textCard {
+  margin: 0px 5px;
+}
+
+.card-horizontal .textCard p:nth-child(1) {
+  font-size: 14px;
+  color: black;
+  font-weight: 700;
+}
+
+.card-horizontal .textCard p:nth-child(2) {
+  font-size: 14px;
+  margin-top: 0px;
+  color: #b1b1b1;
+}
+
+.card-horizontal .priceButton .price-div {
+  margin: 5px;
+}
+
+.card-horizontal .priceButton .price-div p:nth-child(1) {
+  margin-top: 0px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #5abc50;
+}
+
+.card-horizontal .priceButton .price-div p:nth-child(2) {
+  margin-top: -12px;
+  color: black;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.card-horizontal .priceButton .price-div .nextDivbutton .buttongreenarrow {
+  cursor: pointer;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.card-horizontal .div-imageCard {
+  border-radius: 8px 0px 0px 8px;
+}
+
+.card-horizontal .imageCard {
+  width: 380px;
+  height: 180px;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.card-horizontal .textCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}

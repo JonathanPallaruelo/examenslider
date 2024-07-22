@@ -1,0 +1,194 @@
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrFJA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLCz7V1s.ttf) format('truetype');
+}
+.card-horizontal {
+  display: flex;
+  flex-direction: row;
+  width: 380px;
+  height: 180px;
+  margin: 0px;
+}
+.card-horizontal .textCard {
+  margin: 0px 5px;
+}
+.card-horizontal .textCard p:nth-child(1) {
+  font-size: 14px;
+  color: black;
+  font-weight: 700;
+}
+.card-horizontal .textCard p:nth-child(2) {
+  font-size: 14px;
+  margin-top: 0px;
+  color: #b1b1b1;
+}
+.card-horizontal .priceButton .price-div {
+  margin: 5px;
+}
+.card-horizontal .priceButton .price-div p:nth-child(1) {
+  margin-top: 0px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #5abc50;
+}
+.card-horizontal .priceButton .price-div p:nth-child(2) {
+  margin-top: -12px;
+  color: black;
+  font-weight: 700;
+  font-size: 14px;
+}
+.card-horizontal .priceButton .price-div .nextDivbutton .buttongreenarrow {
+  cursor: pointer;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+.card-horizontal .div-imageCard {
+  border-radius: 8px 0px 0px 8px;
+}
+.card-horizontal .imageCard {
+  width: 380px;
+  height: 180px;
+  background-size: cover;
+  background-position: center bottom;
+}
+.card-horizontal .textCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+#Footer {
+  background-color: #d0d0d0;
+  padding: 20px 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#Footer .footer-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+#Footer .footer-container .footer-container-card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  /* Altura opcional para las tarjetas */
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+@media (max-width: 767px) {
+  #Footer .footer-container .footer-container-card {
+    width: 420px;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+  }
+}
+#Footer .footer-container .footer-container-card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+#Footer .footer-container .footer-container-card:hover img {
+  opacity: 0;
+}
+#Footer .footer-container .footer-container-card:hover .footer-container-card-text {
+  opacity: 1;
+}
+#Footer .footer-container .footer-container-card-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+#Footer .footer-container .footer-container-card-text {
+  opacity: 0;
+  padding: 15px;
+  justify-content: start;
+  transition: opacity 0.3s ease;
+}
+#Footer .footer-container .footer-container-card-text h3 {
+  color: #BD9851;
+}
+.footer-title {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 150px;
+}
+.footer-title h2 {
+  color: #BD9851;
+}
+.footer-title .text p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+@media only screen and (max-width: 768px) {
+  .footer-title {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px !important;
+  }
+}
+.footer-social-media {
+  text-align: center;
+  margin-top: 20px;
+}
+.footer-social-media a {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 24px;
+  color: #000000;
+  font-size: 50px;
+}
+.footer-last-section {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-left: 400px;
+}
+.footer-last-section .footer-last-section-logo .footer-last-section-logo-links {
+  text-align: center;
+}
+.footer-last-section .footer-last-section-logo .footer-last-section-logo-links ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  /* Alinea los elementos en el centro */
+}
+.footer-last-section .footer-last-section-logo .footer-last-section-logo-links li {
+  margin: 0 10px;
+  /* Espacio entre elementos */
+}
+.footer-last-section .footer-last-section-logo .footer-last-section-logo-links a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  font-size: 20PX;
+  font-weight: bold;
+}
